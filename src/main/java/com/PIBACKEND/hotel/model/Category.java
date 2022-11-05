@@ -29,10 +29,7 @@ public class Category implements Serializable {
 
 //OneToMany
 
-    @OneToMany()
-    @JoinTable(name="product_category",
-            joinColumns={@JoinColumn(name = "category_id")},
-            inverseJoinColumns={@JoinColumn(name = "product_id")})
+    @OneToMany(mappedBy = "category")
     private Set<Product> productList =new HashSet<>();
 
 

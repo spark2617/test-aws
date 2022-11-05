@@ -38,8 +38,9 @@ public class Product implements Serializable {
 
     //manyToOne de produto e categoria
 
-//    @ManyToOne()
-//    private Category category;
+    @ManyToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+    @JoinColumn(name = "category_id")
+    private Category category;
 //
 //    @ManyToOne()
 //    private City city;
@@ -82,17 +83,17 @@ public class Product implements Serializable {
 
 
 
-//
-//    //manyToOne
-//    // produto-categoria
-//
-//    public Category getCategory() {
-//        return category;
-//    }
-//
-//    public void setCategory(Category category) {
-//        this.category = category;
-//    }
+
+    //manyToOne
+    // produto-categoria
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 //
 //
 //

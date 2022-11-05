@@ -34,7 +34,7 @@ public class CategoryDto implements Serializable {
         this.category_description = category.getCategory_description();
         this.url_image = category.getUrl_image();
 
-        category.getProductList().forEach(end->this.Products.add(new ProductDto(end)));
+
     }
 
     public Integer getCategory_id() {
