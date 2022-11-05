@@ -22,19 +22,17 @@ public class Category implements Serializable {
 
     public Category(Integer category_id, String category_description, String url_image) {
         this.category_id = category_id;
-//        this.qualification = qualification;
         this.category_description = category_description;
         this.url_image = url_image;
     }
 
-
-    //OneToMany
+//OneToMany
 
     @OneToMany()
     private Set<Product> productList =new HashSet<>();
 
 
-
+    //get e set
     public Integer getCategory_id() {
         return category_id;
     }
@@ -42,14 +40,6 @@ public class Category implements Serializable {
     public void setCategory_id(Integer category_id) {
         this.category_id = category_id;
     }
-//
-//    public String getQualification() {
-//        return qualification;
-//    }
-
-//    public void setQualification(String qualification) {
-//        this.qualification = qualification;
-//    }
 
     public String getCategory_description() {
         return category_description;
@@ -68,7 +58,7 @@ public class Category implements Serializable {
     }
 
 
-    //oneToMany
+//oneToMany
 
 
     public Set<Product> getProductList() {
