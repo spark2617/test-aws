@@ -13,7 +13,6 @@ public class Category implements Serializable {
     @Id//chave primária
     @GeneratedValue(strategy = GenerationType.IDENTITY)//chave estrangeira
     private Integer category_id;
-//    private String qualification;
     private String category_name;
     private String category_description;
     private String url_image;

@@ -19,9 +19,9 @@ public class City implements Serializable {
 
     public City(){}
 
-    public City(Integer city_id, String name, String country) {
+    public City(Integer city_id, String city_name, String country) {
         this.city_id = city_id;
-        this.city_name = name;
+        this.city_name = city_name;
         this.country = country;
     }
 
