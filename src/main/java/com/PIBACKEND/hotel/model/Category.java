@@ -14,14 +14,16 @@ public class Category implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)//chave estrangeira
     private Integer category_id;
 //    private String qualification;
+    private String category_name;
     private String category_description;
     private String url_image;
 
     public Category() {
     }
 
-    public Category(Integer category_id, String category_description, String url_image) {
+    public Category(Integer category_id, String category_name, String category_description, String url_image) {
         this.category_id = category_id;
+        this.category_name = category_name;
         this.category_description = category_description;
         this.url_image = url_image;
     }
@@ -33,12 +35,22 @@ public class Category implements Serializable {
 
 
     //get e set
+
+
     public Integer getCategory_id() {
         return category_id;
     }
 
     public void setCategory_id(Integer category_id) {
         this.category_id = category_id;
+    }
+
+    public String getCategory_name() {
+        return category_name;
+    }
+
+    public void setCategory_name(String category_name) {
+        this.category_name = category_name;
     }
 
     public String getCategory_description() {
