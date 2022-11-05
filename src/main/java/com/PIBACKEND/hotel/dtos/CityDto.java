@@ -29,8 +29,8 @@ public class CityDto implements Serializable {
         this.city_id=model.getCity_id();
         this.city_name =model.getCity_name();
         this.country=model.getCountry();
-        
-        model.getLsProducts().forEach(end->this.Products.add(new ProductDto(end)));
+
+
     }
 
     public Integer getCity_id() {
