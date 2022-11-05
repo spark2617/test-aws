@@ -31,7 +31,6 @@ public class Product implements Serializable {
     @JoinTable(name="product_feature",
             joinColumns = @JoinColumn(name = "product_id"),
             inverseJoinColumns = @JoinColumn(name = "feature_id"))
-
     private Set<Feature> featureList =new HashSet<>();
 
 
