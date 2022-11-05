@@ -11,7 +11,7 @@ public class CategoryDto implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private Integer category_id;
-    private String qualification;
+//    private String qualification;
     private String category_description;
     private String url_image;
 
@@ -20,16 +20,16 @@ public class CategoryDto implements Serializable {
     public CategoryDto() {
     }
 
-    public CategoryDto(Integer category_id, String qualification, String category_description, String url_image) {
+    public CategoryDto(Integer category_id, String category_description, String url_image) {
         this.category_id = category_id;
-        this.qualification = qualification;
+
         this.category_description = category_description;
         this.url_image = url_image;
     }
 
     public CategoryDto(Category category) {
         this.category_id = category.getCategory_id();
-        this.qualification = category.getQualification();
+//        this.qualification = category.getQualification();
         this.category_description = category.getCategory_description();
         this.url_image = category.getUrl_image();
 
@@ -49,13 +49,13 @@ public class CategoryDto implements Serializable {
         this.category_id = category_id;
     }
 
-    public String getQualification() {
-        return qualification;
-    }
-
-    public void setQualification(String qualification) {
-        this.qualification = qualification;
-    }
+//    public String getQualification() {
+//        return qualification;
+//    }
+//
+//    public void setQualification(String qualification) {
+//        this.qualification = qualification;
+//    }
 
     public String getCategory_description() {
         return category_description;
