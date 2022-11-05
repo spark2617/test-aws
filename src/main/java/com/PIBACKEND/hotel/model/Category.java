@@ -38,18 +38,18 @@ public class Category implements Serializable {
     public Integer getCategory_id() {
         return category_id;
     }
-//
-//    public void setCategory_id(Integer category_id) {
-//        this.category_id = category_id;
-//    }
+
+    public void setCategory_id(Integer category_id) {
+        this.category_id = category_id;
+    }
 //
 //    public String getQualification() {
 //        return qualification;
 //    }
 
-    public void setQualification(String qualification) {
-        this.qualification = qualification;
-    }
+//    public void setQualification(String qualification) {
+//        this.qualification = qualification;
+//    }
 
     public String getCategory_description() {
         return category_description;
