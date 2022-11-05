@@ -20,13 +20,13 @@ public class ProductController {
     private ProductService service;
 
     @GetMapping
-    public ResponseEntity<List<ProductDto>> getAllCategories() {
+    public ResponseEntity<List<ProductDto>> getAllProduct() {
         List<ProductDto> list = service.getAll();
         return ResponseEntity.ok().body(list);
     }
 
-    @GetMapping(value = "/products/{id}")
-    public ResponseEntity<ProductDto> getCategoryForId(@PathVariable Integer id) {
+    @GetMapping(value = "/product/{id}")
+    public ResponseEntity<ProductDto> getProductForId(@PathVariable Integer id) {
         ProductDto dto = service.getId(id);
         return ResponseEntity.ok().body(dto);
     }
@@ -39,14 +39,14 @@ public class ProductController {
 
 
     @DeleteMapping(value = "delete/{id}")
-    public ResponseEntity<Void> deleteCategory(@PathVariable Integer id) {
+    public ResponseEntity<Void> deleteProduct(@PathVariable Integer id) {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
 
 
     @PostMapping
-    public ResponseEntity<ProductDto> insertCategory(@RequestBody ProductDto dto) {
+    public ResponseEntity<ProductDto> insertProduct(@RequestBody ProductDto dto) {
         dto = service.insert(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(dto.getProduct_id()).toUri();

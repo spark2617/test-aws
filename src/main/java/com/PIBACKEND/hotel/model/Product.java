@@ -38,11 +38,11 @@ public class Product implements Serializable {
 
     //manyToOne de produto e categoria
 
-    @ManyToOne()
-    private Category category;
-
-    @ManyToOne()
-    private City city;
+//    @ManyToOne()
+//    private Category category;
+//
+//    @ManyToOne()
+//    private City city;
 
     //get e set
 
@@ -82,29 +82,29 @@ public class Product implements Serializable {
 
 
 
-
-    //manyToOne
-    // produto-categoria
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
-
-
-
-    //manyToOne
-    // produto-cidade
-
-    public City getCity() {
-        return city;
-    }
-
-    public void setCity(City city) {
-        this.city = city;
-    }
+//
+//    //manyToOne
+//    // produto-categoria
+//
+//    public Category getCategory() {
+//        return category;
+//    }
+//
+//    public void setCategory(Category category) {
+//        this.category = category;
+//    }
+//
+//
+//
+//
+//    //manyToOne
+//    // produto-cidade
+//
+//    public City getCity() {
+//        return city;
+//    }
+//
+//    public void setCity(City city) {
+//        this.city = city;
+//    }
 }
