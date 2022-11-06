@@ -42,6 +42,9 @@ public class Product implements Serializable {
 //    private Category category;
 //
     @ManyToOne
+    @JoinTable(name="product_city",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "city_id"))
     private City city;
 
     //get e set
