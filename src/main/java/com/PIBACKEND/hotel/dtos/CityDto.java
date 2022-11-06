@@ -15,7 +15,7 @@ public class CityDto implements Serializable {
     private String city_name;
     private String country;
 
-//    private Set<ProductDto> Products;
+    private Set<ProductDto> Products;
 
     public CityDto(){}
 
