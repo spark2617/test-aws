@@ -27,7 +27,7 @@ public class City implements Serializable {
     }
 
     //OneToMany
-    @OneToMany
+    @OneToMany(mappedBy = "city")
     @JoinTable(name="product_city",
             joinColumns = @JoinColumn(name = "city_id"),
             inverseJoinColumns = @JoinColumn(name = "product_id"))
