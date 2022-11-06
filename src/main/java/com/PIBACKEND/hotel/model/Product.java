@@ -39,7 +39,7 @@ public class Product implements Serializable {
     //manyToOne de produto e categoria
 
     @ManyToOne()
-    private Category category;
+    private Category category_id;
 //
 //    @ManyToOne()
 //    private City city;
@@ -86,15 +86,13 @@ public class Product implements Serializable {
     //manyToOne
     // produto-categoria
 
-    public Category getCategory() {
-        return category;
+    public Category getCategory_id() {
+        return category_id;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setCategory_id(Category category_id) {
+        this.category_id = category_id;
     }
-
-
 
 
 //    //manyToOne

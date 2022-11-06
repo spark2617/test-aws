@@ -30,7 +30,7 @@ public class Category implements Serializable {
 //OneToMany
 
     @OneToMany()
-    private Set<Product> productList =new HashSet<>();
+    private Set<Product> product_id =new HashSet<>();
 
 
     //get e set
@@ -72,11 +72,11 @@ public class Category implements Serializable {
 //oneToMany
 
 
-    public Set<Product> getProductList() {
-        return productList;
+    public Set<Product> getProduct_id() {
+        return product_id;
     }
 
-    public void setProductList(Set<Product> productList) {
-        this.productList = productList;
+    public void setProduct_id(Set<Product> product_id) {
+        this.product_id = product_id;
     }
 }
