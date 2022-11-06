@@ -41,7 +41,7 @@ public class Product implements Serializable {
 //    @ManyToOne
 //    private Category category;
 //
-    @ManyToOne()
+    @ManyToOne
     private City city;
 
     //get e set
