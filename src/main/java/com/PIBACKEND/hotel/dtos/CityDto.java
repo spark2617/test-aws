@@ -4,6 +4,7 @@ import com.PIBACKEND.hotel.model.City;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 public class CityDto implements Serializable {
@@ -15,7 +16,7 @@ public class CityDto implements Serializable {
     private String city_name;
     private String country;
 
-    private Set<ProductDto> Products;
+    private List<ProductDto> Products;
 
     public CityDto(){}
 
@@ -59,12 +60,13 @@ public class CityDto implements Serializable {
 
 
 ////OneToMany
-//
-//    public Set<ProductDto> getProducts() {
-//        return Products;
-//    }
-//
-//    public void setProducts(Set<ProductDto> Products) {
-//        this.Products = Products;
-//    }
+
+
+    public List<ProductDto> getProducts() {
+        return Products;
+    }
+
+    public void setProducts(List<ProductDto> products) {
+        Products = products;
+    }
 }
