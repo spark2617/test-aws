@@ -2,6 +2,7 @@ package com.PIBACKEND.hotel.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -26,8 +27,11 @@ public class City implements Serializable {
     }
 
     //OneToMany
-//    @OneToMany
-//    private Set<Product> lsProducts;
+    @OneToMany
+    @JoinTable(name="product_city",
+            joinColumns = @JoinColumn(name = "city_id"),
+            inverseJoinColumns = @JoinColumn(name = "product_id"))
+    private List<Product> lsProducts;
 
 
 
@@ -62,11 +66,11 @@ public class City implements Serializable {
     //oneToMany
 
 
-//    public Set<Product> getLsProducts() {
-//        return lsProducts;
-//    }
-//
-//    public void setLsProducts(Set<Product> lsProducts) {
-//        this.lsProducts = lsProducts;
-//    }
+    public List<Product> getLsProducts() {
+        return lsProducts;
+    }
+
+    public void setLsProducts(List<Product> lsProducts) {
+        this.lsProducts = lsProducts;
+    }
 }
