@@ -41,6 +41,7 @@ public class ProductDto implements Serializable {
 
 
 //        //manyToOne
+        this.city=model.getCity();
 //        model.getCategory();
         //model.getCity();
 
