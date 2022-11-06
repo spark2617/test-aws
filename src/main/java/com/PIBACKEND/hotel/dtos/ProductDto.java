@@ -19,9 +19,9 @@ public class ProductDto implements Serializable {
 
     private Set<FeatureDto> featureDtoList =new HashSet<>();
 
-    private Category category;
+//    private Category category;
 //
-//    private City city;
+    private City city;
 
     public ProductDto(){}
 
@@ -41,8 +41,8 @@ public class ProductDto implements Serializable {
 
 
 //        //manyToOne
-        //this.category=model.getCategory();
-//        this.city=model.getCity();
+//        model.getCategory();
+        model.getCity();
 
 
         //ManyToMany
@@ -90,21 +90,21 @@ public class ProductDto implements Serializable {
     //ManyToOne
 
 
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
-//
-//    //ManyToOne
-//    public City getCity() {
-//        return city;
+//    public Category getCategory() {
+//        return category;
 //    }
 //
-//    public void setCity(City city) {
-//        this.city = city;
+//    public void setCategory(Category category) {
+//        this.category = category;
 //    }
+
+//
+    //ManyToOne
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
+    }
 }
