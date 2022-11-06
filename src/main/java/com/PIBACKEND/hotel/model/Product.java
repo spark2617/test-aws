@@ -38,8 +38,9 @@ public class Product implements Serializable {
 
     //manyToOne de produto e categoria
 
-    @ManyToOne()
-    private Category category_id;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
+    private Category category;
 //
 //    @ManyToOne()
 //    private City city;

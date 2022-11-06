@@ -29,8 +29,8 @@ public class Category implements Serializable {
 
 //OneToMany
 
-    @OneToMany()
-    private Set<Product> product_id =new HashSet<>();
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
+    private Set<Product> product_id;
 
 
     //get e set
