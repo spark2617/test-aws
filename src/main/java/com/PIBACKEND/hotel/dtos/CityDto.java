@@ -15,7 +15,7 @@ public class CityDto implements Serializable {
     private String city_name;
     private String country;
 
-    private Set<ProductDto> Products;
+//    private Set<ProductDto> Products;
 
     public CityDto(){}
 
@@ -58,13 +58,13 @@ public class CityDto implements Serializable {
     }
 
 
-//OneToMany
-
-    public Set<ProductDto> getProducts() {
-        return Products;
-    }
-
-    public void setProducts(Set<ProductDto> Products) {
-        this.Products = Products;
-    }
+////OneToMany
+//
+//    public Set<ProductDto> getProducts() {
+//        return Products;
+//    }
+//
+//    public void setProducts(Set<ProductDto> Products) {
+//        this.Products = Products;
+//    }
 }

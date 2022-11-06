@@ -62,11 +62,11 @@ public class City implements Serializable {
     //oneToMany
 
 
-    public Set<Product> getLsProducts() {
-        return lsProducts;
-    }
-
-    public void setLsProducts(Set<Product> lsProducts) {
-        this.lsProducts = lsProducts;
-    }
+//    public Set<Product> getLsProducts() {
+//        return lsProducts;
+//    }
+//
+//    public void setLsProducts(Set<Product> lsProducts) {
+//        this.lsProducts = lsProducts;
+//    }
 }
