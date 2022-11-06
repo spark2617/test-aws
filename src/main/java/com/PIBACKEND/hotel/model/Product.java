@@ -87,12 +87,12 @@ public class Product implements Serializable {
     //manyToOne
     // produto-categoria
 
-    public Category getCategory_id() {
-        return category_id;
+    public Category getCategory() {
+        return category;
     }
 
-    public void setCategory_id(Category category_id) {
-        this.category_id = category_id;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
 
