@@ -38,8 +38,7 @@ public class Product implements Serializable {
 
     //manyToOne de produto e categoria
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
-    @JoinColumn(name = "category_id")
+    @ManyToOne()
     private Category category;
 //
 //    @ManyToOne()
@@ -94,10 +93,10 @@ public class Product implements Serializable {
     public void setCategory(Category category) {
         this.category = category;
     }
-//
-//
-//
-//
+
+
+
+
 //    //manyToOne
 //    // produto-cidade
 //
