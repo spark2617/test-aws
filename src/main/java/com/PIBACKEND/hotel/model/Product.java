@@ -41,8 +41,8 @@ public class Product implements Serializable {
 //    @ManyToOne
 //    private Category category;
 //
-    @ManyToOne
-    private City city;
+//    @ManyToOne
+//    private City city;
 
     //get e set
 
@@ -98,11 +98,11 @@ public class Product implements Serializable {
 //    //manyToOne
 //    // produto-cidade
 
-    public City getCity() {
-        return city;
-    }
-
-    public void setCity(City city) {
-        this.city = city;
-    }
+//    public City getCity() {
+//        return city;
+//    }
+//
+//    public void setCity(City city) {
+//        this.city = city;
+//    }
 }

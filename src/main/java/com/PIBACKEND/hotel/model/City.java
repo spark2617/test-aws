@@ -26,8 +26,8 @@ public class City implements Serializable {
     }
 
     //OneToMany
-    @OneToMany
-    private Set<Product> lsProducts;
+//    @OneToMany
+//    private Set<Product> lsProducts;
 
 
 
