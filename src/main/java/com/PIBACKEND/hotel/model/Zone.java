@@ -27,7 +27,7 @@ public class Zone implements Serializable {
     }
 
     //OneToMany
-    @OneToMany(mappedBy = "citys")
+    @OneToMany(mappedBy = "city_id")
     private List<Product> lsProducts;
 
 
