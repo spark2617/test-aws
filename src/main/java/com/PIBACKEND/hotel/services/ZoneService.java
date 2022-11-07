@@ -1,8 +1,8 @@
 package com.PIBACKEND.hotel.services;
 
-import com.PIBACKEND.hotel.dtos.CityDto;
-import com.PIBACKEND.hotel.model.City;
-import com.PIBACKEND.hotel.repositories.CityRepository;
+import com.PIBACKEND.hotel.dtos.ZoneDto;
+import com.PIBACKEND.hotel.model.Zone;
+import com.PIBACKEND.hotel.repositories.ZoneRepository;
 import com.PIBACKEND.hotel.services.exceptions.EntityNotFoundExceptionHotel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,17 +13,17 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class CityService {
+public class ZoneService {
 
     @Autowired
-    private CityRepository repository;
+    private ZoneRepository repository;
 
     //listar todas as cidade
     @Transactional(readOnly = true)
-    public List<CityDto> getAll() {
+    public List<ZoneDto> getAll() {
         try {
-            List<City> list = repository.findAll();
-            return list.stream().map(CityDto::new).collect(Collectors.toList());
+            List<Zone> list = repository.findAll();
+            return list.stream().map(ZoneDto::new).collect(Collectors.toList());
         }
         catch(EntityNotFoundException e){
             throw new EntityNotFoundExceptionHotel("Record not found!");
@@ -34,15 +34,15 @@ public class CityService {
     //criar uma cidade
 
     @Transactional
-    public CityDto insert(CityDto dto) {
+    public ZoneDto insert(ZoneDto dto) {
 
-        City entity = new City();
+        Zone entity = new Zone();
 
-        entity.setCity_name(dto.getCity_name());
-        entity.setCountry(dto.getCountry());
+        entity.setCoordinate(dto.getCoordinate());
+        entity.setMetaverse(dto.getMetaverse());
 
         entity = repository.save(entity);
-        return new CityDto(entity);
+        return new ZoneDto(entity);
     }
 
 

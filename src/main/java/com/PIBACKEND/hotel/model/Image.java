@@ -14,8 +14,9 @@ public class Image implements Serializable {
     private String title;
     private String url_img;
 
-    //construtor
 
+
+    //construtor
     public Image(){}
 
     public Image(Integer images_id, String title, String url_img) {
@@ -24,9 +25,15 @@ public class Image implements Serializable {
         this.url_img = url_img;
     }
 
-//get e set
 
 
+    @ManyToOne
+    private Product product_id;
+
+
+
+
+    //get e set
     public Integer getImage_id() {
         return image_id;
     }
@@ -49,5 +56,18 @@ public class Image implements Serializable {
 
     public void setUrl_img(String url_img) {
         this.url_img = url_img;
+    }
+
+
+
+
+    //manyToOne
+
+    public Product getProduct_id() {
+        return product_id;
+    }
+
+    public void setProduct_id(Product product_id) {
+        this.product_id = product_id;
     }
 }

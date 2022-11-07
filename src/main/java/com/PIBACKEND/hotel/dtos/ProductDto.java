@@ -1,11 +1,9 @@
 package com.PIBACKEND.hotel.dtos;
 
-import com.PIBACKEND.hotel.model.Category;
-import com.PIBACKEND.hotel.model.City;
 import com.PIBACKEND.hotel.model.Product;
 
-import java.io.Serializable;
 import java.io.Serial;
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -19,9 +17,11 @@ public class ProductDto implements Serializable {
 
     private Set<FeatureDto> featureDtoList =new HashSet<>();
 
-    private Category categorys;
-//
-    private City citys;
+    private CategoryDto categorys;
+
+    private Set<ImageDto> images=new HashSet<>();
+
+    private ZoneDto citys;
 
     public ProductDto(){}
 
@@ -41,8 +41,11 @@ public class ProductDto implements Serializable {
 
 
         //manyToOne
-        this.categorys=model.getCategorys();
-        this.citys=model.getCitys();
+
+
+
+        //OneToMany
+        model.getImages().forEach(end->this.images.add(new ImageDto(end)));
 
 
 
@@ -90,23 +93,38 @@ public class ProductDto implements Serializable {
 
     //ManyToOne
 
+    public CategoryDto getCategorys() {
+        return categorys;
+    }
 
-//    public Category getCategory() {
-//        return category;
-//    }
-//
-//    public void setCategory(Category category) {
-//        this.category = category;
-//    }
+    public void setCategorys(CategoryDto categorys) {
+        this.categorys = categorys;
+    }
 
-//
+
+
+
     //ManyToOne
 
-    public City getCitys() {
+    public ZoneDto getCitys() {
         return citys;
     }
 
-    public void setCitys(City citys) {
+    public void setCitys(ZoneDto citys) {
         this.citys = citys;
+    }
+
+
+
+
+    //oneToMany
+
+
+    public Set<ImageDto> getImages() {
+        return images;
+    }
+
+    public void setImages(Set<ImageDto> images) {
+        this.images = images;
     }
 }

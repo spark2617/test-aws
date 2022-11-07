@@ -1,7 +1,7 @@
 package com.PIBACKEND.hotel.controller;
 
-import com.PIBACKEND.hotel.dtos.CityDto;
-import com.PIBACKEND.hotel.services.CityService;
+import com.PIBACKEND.hotel.dtos.ZoneDto;
+import com.PIBACKEND.hotel.services.ZoneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,16 +16,16 @@ import java.util.List;
 public class CityControllers {
 
     @Autowired
-    private CityService service;
+    private ZoneService service;
 
     @GetMapping
-    public ResponseEntity<List<CityDto>> getAllCities() {
-        List<CityDto> list = service.getAll();
+    public ResponseEntity<List<ZoneDto>> getAllCities() {
+        List<ZoneDto> list = service.getAll();
         return ResponseEntity.ok().body(list);
     }
 
     @PostMapping
-    public ResponseEntity<CityDto> insertCities(@RequestBody CityDto dto) {
+    public ResponseEntity<ZoneDto> insertCities(@RequestBody ZoneDto dto) {
         dto = service.insert(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
                 .buildAndExpand(dto.getCity_id()).toUri();

@@ -3,6 +3,7 @@ package com.PIBACKEND.hotel.model;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -25,8 +26,7 @@ public class Product implements Serializable {
         this.product_description = product_description;
     }
 
-//manyToMany
-
+    //manyToMany
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name="product_feature",
             joinColumns = @JoinColumn(name = "product_id"),
@@ -37,15 +37,21 @@ public class Product implements Serializable {
 
 
     //manyToOne de produto e categoria
+    @ManyToOne
+    private Category category_id;
 
     @ManyToOne
-    private Category categorys;
+    private Zone city_id;
 
-    @ManyToOne
-    private City citys;
+
+
+    //OneToMany de image
+    @OneToMany(mappedBy = "product_id")
+    private List<Image> images;
+
+
 
     //get e set
-
     public Integer getProduct_id() {
         return product_id;
     }
@@ -70,8 +76,9 @@ public class Product implements Serializable {
         this.product_description = product_description;
     }
 
-//manyToMany
 
+
+    //manyToMany
     public Set<Feature> getFeatureList() {
         return featureList;
     }
@@ -83,27 +90,40 @@ public class Product implements Serializable {
 
 
 
+
     //manyToOne
     // produto-categoria
-
-    public Category getCategorys() {
-        return categorys;
+    public Category getCategory_id() {
+        return category_id;
     }
 
-    public void setCategorys(Category categorys) {
-        this.categorys = categorys;
+    public void setCategory_id(Category category_id) {
+        this.category_id = category_id;
     }
 
 
-//    //manyToOne
-//    // produto-cidade
 
+    //manyToOne
+    // produto-cidade
 
-    public City getCitys() {
-        return citys;
+    public Zone getCity_id() {
+        return city_id;
     }
 
-    public void setCitys(City citys) {
-        this.citys = citys;
+    public void setCity_id(Zone city_id) {
+        this.city_id = city_id;
+    }
+
+
+
+
+    //oneToMany
+    //product-Image
+    public List<Image> getImages() {
+        return images;
+    }
+
+    public void setImages(List<Image> images) {
+        this.images = images;
     }
 }
