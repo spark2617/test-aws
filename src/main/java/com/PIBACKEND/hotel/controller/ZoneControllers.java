@@ -13,7 +13,7 @@ import java.util.List;
 @CrossOrigin
 @RestController
 @RequestMapping(value = "/cities")
-public class CityControllers {
+public class ZoneControllers {
 
     @Autowired
     private ZoneService service;
@@ -28,7 +28,7 @@ public class CityControllers {
     public ResponseEntity<ZoneDto> insertCities(@RequestBody ZoneDto dto) {
         dto = service.insert(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-                .buildAndExpand(dto.getCity_id()).toUri();
+                .buildAndExpand(dto.getZone_id()).toUri();
         return ResponseEntity.created(uri).body(dto);
     }
 
