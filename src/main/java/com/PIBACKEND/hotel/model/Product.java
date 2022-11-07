@@ -38,14 +38,11 @@ public class Product implements Serializable {
 
     //manyToOne de produto e categoria
 
-//    @ManyToOne
-//    private Category category;
-//
     @ManyToOne
-//    @JoinTable(name="product_city",
-//            joinColumns = @JoinColumn(name = "product_id"),
-//            inverseJoinColumns = @JoinColumn(name = "city_id"))
-    private City city;
+    private Category categorys;
+
+    @ManyToOne
+    private City citys;
 
     //get e set
 
@@ -89,23 +86,24 @@ public class Product implements Serializable {
     //manyToOne
     // produto-categoria
 
-//    public Category getCategory() {
-//        return category;
-//    }
-//
-//    public void setCategory(Category category) {
-//        this.category = category;
-//    }
+    public Category getCategorys() {
+        return categorys;
+    }
+
+    public void setCategorys(Category categorys) {
+        this.categorys = categorys;
+    }
 
 
 //    //manyToOne
 //    // produto-cidade
 
-    public City getCity() {
-        return city;
+
+    public City getCitys() {
+        return citys;
     }
 
-    public void setCity(City city) {
-        this.city = city;
+    public void setCitys(City citys) {
+        this.citys = citys;
     }
 }

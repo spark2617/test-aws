@@ -29,11 +29,8 @@ public class Category implements Serializable {
 
 //OneToMany
 
-//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
-//    @JoinTable(name="product_city",
-//            joinColumns={@JoinColumn(name = "city_id")},
-//            inverseJoinColumns={@JoinColumn(name = "product_id")})
-//    private Set<Product> product_id;
+    @OneToMany(mappedBy = "categorys")
+    private Set<Product> lsProduct;
 
 
     //get e set
@@ -75,11 +72,11 @@ public class Category implements Serializable {
 //oneToMany
 
 
-//    public Set<Product> getProduct_id() {
-//        return product_id;
-//    }
-//
-//    public void setProduct_id(Set<Product> product_id) {
-//        this.product_id = product_id;
-//    }
+    public Set<Product> getLsProduct() {
+        return lsProduct;
+    }
+
+    public void setLsProduct(Set<Product> lsProduct) {
+        this.lsProduct = lsProduct;
+    }
 }

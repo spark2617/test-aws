@@ -27,10 +27,7 @@ public class City implements Serializable {
     }
 
     //OneToMany
-    @OneToMany(mappedBy = "city")
-//    @JoinTable(name="product_city",
-//            joinColumns = @JoinColumn(name = "city_id"),
-//            inverseJoinColumns = @JoinColumn(name = "product_id"))
+    @OneToMany(mappedBy = "citys")
     private List<Product> lsProducts;
 
 
