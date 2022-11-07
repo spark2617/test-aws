@@ -39,7 +39,7 @@ public class ZoneService {
         Zone entity = new Zone();
 
         entity.setCoordinate(dto.getCoordinate());
-        entity.setMetaverse(dto.getMetaverse());
+
 
         entity = repository.save(entity);
         return new ZoneDto(entity);

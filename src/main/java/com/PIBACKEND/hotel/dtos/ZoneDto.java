@@ -13,8 +13,8 @@ public class ZoneDto implements Serializable {
 
     private Integer zone_id;
     private String coordinate;
-    private String metaverse;
 
+    private
 
     private List<ProductDto> Products;
 
@@ -23,12 +23,11 @@ public class ZoneDto implements Serializable {
     public ZoneDto(Integer zone_id, String coordinate, String metaverse) {
         this.zone_id = zone_id;
         this.coordinate = coordinate;
-        this.metaverse = metaverse;
+
     }
 
     public ZoneDto(Zone model){
 
-        this.metaverse=model.getMetaverse();
         this.coordinate=model.getCoordinate();
 
         model.getLsProducts().forEach(end->this.Products.add(new ProductDto(end)));
@@ -53,17 +52,11 @@ public class ZoneDto implements Serializable {
         this.coordinate = coordinate;
     }
 
-    public String getMetaverse() {
-        return metaverse;
-    }
-
-    public void setMetaverse(String metaverse) {
-        this.metaverse = metaverse;
-    }
-
-////OneToMany
 
 
+
+
+    //OneToMany
     public List<ProductDto> getProducts() {
         return Products;
     }

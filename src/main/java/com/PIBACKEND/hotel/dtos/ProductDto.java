@@ -42,6 +42,7 @@ public class ProductDto implements Serializable {
 
         //manyToOne
 
+        this.categorys=new CategoryDto();
 
 
         //OneToMany

@@ -14,16 +14,16 @@ public class Zone implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)//chave estrangeira
     private Integer zone_id;
     private String coordinate;
-    private String metaverse;
+
 
     //construtor
 
     public Zone(){}
 
-    public Zone(Integer zone_id, String coordinate, String metaverse) {
+    public Zone(Integer zone_id, String coordinate) {
         this.zone_id = zone_id;
         this.coordinate = coordinate;
-        this.metaverse = metaverse;
+
     }
 
     //OneToMany
@@ -31,6 +31,9 @@ public class Zone implements Serializable {
     private List<Product> lsProducts;
 
 
+    @ManyToOne
+    @JoinColumn(name="metaverse_id", referencedColumnName="id")
+    private Metaverse metaverse_id;
 
 
     //get e set
@@ -51,13 +54,7 @@ public class Zone implements Serializable {
         this.coordinate = coordinate;
     }
 
-    public String getMetaverse() {
-        return metaverse;
-    }
 
-    public void setMetaverse(String metaverse) {
-        this.metaverse = metaverse;
-    }
 
 
     //oneToMany

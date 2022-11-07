@@ -38,9 +38,11 @@ public class Product implements Serializable {
 
     //manyToOne de produto e categoria
     @ManyToOne
+    @JoinColumn(name="category_id", referencedColumnName="id")
     private Category category_id;
 
     @ManyToOne
+    @JoinColumn(name="city_id", referencedColumnName="id")
     private Zone city_id;
 
 
