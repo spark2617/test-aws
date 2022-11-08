@@ -13,19 +13,19 @@ public class Zone implements Serializable {
     @Id//chave primária
     @GeneratedValue(strategy = GenerationType.IDENTITY)//chave estrangeira
     private Integer zone_id;
-    private String coordinate;
+    private double latitude;
+    private double longitude;
 
 
     //construtor
 
     public Zone(){}
 
-    public Zone(Integer zone_id, String coordinate) {
+    public Zone(Integer zone_id, double latitude, double longitude) {
         this.zone_id = zone_id;
-        this.coordinate = coordinate;
-
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
-
 
     @OneToOne
     private Product product;
@@ -46,14 +46,21 @@ public class Zone implements Serializable {
         this.zone_id = zone_id;
     }
 
-    public String getCoordinate() {
-        return coordinate;
+    public double getLatitude() {
+        return latitude;
     }
 
-    public void setCoordinate(String coordinate) {
-        this.coordinate = coordinate;
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
     }
 
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
 
     //OneToOne
 

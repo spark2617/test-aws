@@ -12,7 +12,8 @@ public class ZoneDto implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private Integer zone_id;
-    private String coordinate;
+    private double latitude;
+    private double longitude;
 
 
     //ManyToOne
@@ -26,20 +27,21 @@ public class ZoneDto implements Serializable {
 
     public ZoneDto(){}
 
-    public ZoneDto(Integer zone_id, String coordinate, String metaverse) {
+    public ZoneDto(Integer zone_id, double latitude, double longitude) {
         this.zone_id = zone_id;
-        this.coordinate = coordinate;
-
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     public ZoneDto(Zone model){
 
-        this.coordinate=model.getCoordinate();
+        this.longitude=model.getLongitude();
+        this.latitude=model.getLatitude();
 
         //ManyToOne
         this.metaverseDto=new MetaverseDto(model.getMetaverse_id());
 
-        //oneToMany
+        //oneToOne
         this.productDto=new ProductDto(model.getProduct());
 
     }
@@ -54,19 +56,23 @@ public class ZoneDto implements Serializable {
         this.zone_id = zone_id;
     }
 
-    public String getCoordinate() {
-        return coordinate;
+    public double getLatitude() {
+        return latitude;
     }
 
-    public void setCoordinate(String coordinate) {
-        this.coordinate = coordinate;
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
     }
 
+    public double getLongitude() {
+        return longitude;
+    }
 
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
 
-
-
-    //OneToOne
+//OneToOne
 
     public ProductDto getProductDto() {
         return productDto;

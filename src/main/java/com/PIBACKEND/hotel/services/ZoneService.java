@@ -38,7 +38,8 @@ public class ZoneService {
 
         Zone entity = new Zone();
 
-        entity.setCoordinate(dto.getCoordinate());
+        entity.setLatitude(dto.getLatitude());
+        entity.setLongitude(dto.getLongitude());
 
 
         entity = repository.save(entity);
