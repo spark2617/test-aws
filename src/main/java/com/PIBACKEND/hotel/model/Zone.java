@@ -28,7 +28,7 @@ public class Zone implements Serializable {
     }
 
     @OneToOne
-    private Product product;
+    private Product product_id;
 
 
     @ManyToOne
