@@ -67,4 +67,15 @@ public class Zone implements Serializable {
     public void setLsProducts(List<Product> lsProducts) {
         this.lsProducts = lsProducts;
     }
+
+
+    //ManyToOne
+
+    public Metaverse getMetaverse_id() {
+        return metaverse_id;
+    }
+
+    public void setMetaverse_id(Metaverse metaverse_id) {
+        this.metaverse_id = metaverse_id;
+    }
 }
