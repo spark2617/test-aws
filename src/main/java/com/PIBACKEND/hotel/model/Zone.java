@@ -26,9 +26,9 @@ public class Zone implements Serializable {
 
     }
 
-    //OneToMany
-    @OneToMany(mappedBy = "city_id")
-    private List<Product> lsProducts;
+
+    @OneToOne
+    private Product product;
 
 
     @ManyToOne
@@ -55,17 +55,14 @@ public class Zone implements Serializable {
     }
 
 
+    //OneToOne
 
-
-    //oneToMany
-
-
-    public List<Product> getLsProducts() {
-        return lsProducts;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setLsProducts(List<Product> lsProducts) {
-        this.lsProducts = lsProducts;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
 

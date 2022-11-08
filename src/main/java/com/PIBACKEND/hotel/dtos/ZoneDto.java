@@ -19,8 +19,8 @@ public class ZoneDto implements Serializable {
     private MetaverseDto metaverseDto;
 
 
-    //OneToMany
-    private List<ProductDto> Products;
+    //OneToOne
+    private ProductDto productDto;
 
 
 
@@ -40,7 +40,7 @@ public class ZoneDto implements Serializable {
         this.metaverseDto=new MetaverseDto(model.getMetaverse_id());
 
         //oneToMany
-        model.getLsProducts().forEach(end->this.Products.add(new ProductDto(end)));
+        this.productDto=new ProductDto(model.getProduct());
 
     }
 
@@ -66,12 +66,13 @@ public class ZoneDto implements Serializable {
 
 
 
-    //OneToMany
-    public List<ProductDto> getProducts() {
-        return Products;
+    //OneToOne
+
+    public ProductDto getProductDto() {
+        return productDto;
     }
 
-    public void setProducts(List<ProductDto> products) {
-        Products = products;
+    public void setProductDto(ProductDto productDto) {
+        this.productDto = productDto;
     }
 }

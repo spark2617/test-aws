@@ -21,7 +21,7 @@ public class ProductDto implements Serializable {
 
     private Set<ImageDto> images=new HashSet<>();
 
-    private ZoneDto citys;
+    private ZoneDto zoneDto;
 
     public ProductDto(){}
 
@@ -39,9 +39,11 @@ public class ProductDto implements Serializable {
         this.product_name=model.getProduct_name();
         this.product_description=model.getProduct_description();
 
+        //OneToOne
+        this.zoneDto=new ZoneDto(model.getZone_id());
+
 
         //manyToOne
-
         this.categorys=new CategoryDto(model.getCategory_id());
 
 
@@ -104,20 +106,6 @@ public class ProductDto implements Serializable {
 
 
 
-
-    //ManyToOne
-
-    public ZoneDto getCitys() {
-        return citys;
-    }
-
-    public void setCitys(ZoneDto citys) {
-        this.citys = citys;
-    }
-
-
-
-
     //oneToMany
 
 
@@ -127,5 +115,17 @@ public class ProductDto implements Serializable {
 
     public void setImages(Set<ImageDto> images) {
         this.images = images;
+    }
+
+
+    //OneToOne
+
+
+    public ZoneDto getZoneDto() {
+        return zoneDto;
+    }
+
+    public void setZoneDto(ZoneDto zoneDto) {
+        this.zoneDto = zoneDto;
     }
 }

@@ -36,14 +36,14 @@ public class Product implements Serializable {
 
 
 
-    //manyToOne de produto e categoria
+    //manyToOne
     @ManyToOne
     @JoinColumn(name="category_id")
     private Category category_id;
 
-    @ManyToOne
-    @JoinColumn(name="city_id")
-    private Zone city_id;
+    @OneToOne(mappedBy = "product")
+    @JoinColumn(name="zone_id")
+    private Zone zone_id;
 
 
 
@@ -92,7 +92,6 @@ public class Product implements Serializable {
 
 
 
-
     //manyToOne
     // produto-categoria
     public Category getCategory_id() {
@@ -105,17 +104,14 @@ public class Product implements Serializable {
 
 
 
-    //manyToOne
-    // produto-cidade
-
-    public Zone getCity_id() {
-        return city_id;
+    //OneToOne
+    public Zone getZone_id() {
+        return zone_id;
     }
 
-    public void setCity_id(Zone city_id) {
-        this.city_id = city_id;
+    public void setZone_id(Zone zone_id) {
+        this.zone_id = zone_id;
     }
-
 
 
 
