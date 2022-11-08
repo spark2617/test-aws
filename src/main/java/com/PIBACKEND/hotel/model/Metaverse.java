@@ -22,7 +22,7 @@ public class Metaverse implements Serializable {
     }
 
 
-    @OneToMany(mappedBy = "metaverse")
+    @OneToMany(mappedBy = "metaverse_id")
     private Set<Zone> zones;
 
 
