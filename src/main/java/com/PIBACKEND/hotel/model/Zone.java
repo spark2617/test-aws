@@ -32,7 +32,7 @@ public class Zone implements Serializable {
 
 
     @ManyToOne
-    @JoinColumn(name="metaverse_id", referencedColumnName="id")
+    @JoinColumn(name="metaverse_id")
     private Metaverse metaverse_id;
 
 
