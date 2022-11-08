@@ -64,12 +64,12 @@ public class Zone implements Serializable {
 
     //OneToOne
 
-    public Product getProduct() {
-        return product;
+    public Product getProduct_id() {
+        return product_id;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setProduct_id(Product product_id) {
+        this.product_id = product_id;
     }
 
 
