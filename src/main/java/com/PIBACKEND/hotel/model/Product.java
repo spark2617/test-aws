@@ -41,7 +41,7 @@ public class Product implements Serializable {
     @JoinColumn(name="category_id")
     private Category category_id;
 
-    @OneToOne(mappedBy = "product")
+    @OneToOne(mappedBy = "product_id")
     @JoinColumn(name="zone_id")
     private Zone zone_id;
 
