@@ -20,10 +20,10 @@ public class ImageDto implements Serializable {
 
     public ImageDto(){}
 
-    public ImageDto(Integer image_id, String title, String url) {
-        this.imageid = image_id;
+    public ImageDto(Integer imageid, String title, String urlimg) {
+        this.imageid = imageid;
         this.title = title;
-        this.urlimg = url;
+        this.urlimg = urlimg;
     }
 
     public ImageDto(Image model){
