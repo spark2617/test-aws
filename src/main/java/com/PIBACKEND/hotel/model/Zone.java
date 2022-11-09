@@ -28,7 +28,7 @@ public class Zone implements Serializable {
     }
 
     @OneToOne
-    @JoinColumn(name="metaverse_id")
+    @JoinColumn(name="product_id")
     private Product product_id;
 
 
