@@ -28,9 +28,9 @@ public class Product implements Serializable {
 
     //manyToMany
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name="product_feature",
-            joinColumns = @JoinColumn(name = "product_id"),
-            inverseJoinColumns = @JoinColumn(name = "feature_id"))
+    @JoinTable(name="productfeature",
+            joinColumns = @JoinColumn(name = "productid"),
+            inverseJoinColumns = @JoinColumn(name = "featureid"))
     private Set<Feature> featureList =new HashSet<>();
 
 
