@@ -31,11 +31,11 @@ public class ProductController {
         return ResponseEntity.ok().body(dto);
     }
 
-    @GetMapping(value = "/metaverse/{name}")
-    public ResponseEntity<List<ProductDto>> getProductToMetaverseName(@PathVariable String name) {
-        List<ProductDto> list = service.getProductZone(name);
-        return ResponseEntity.ok().body(list);
-    }
+//    @GetMapping(value = "/metaverse/{name}")
+//    public ResponseEntity<List<ProductDto>> getProductToMetaverseName(@PathVariable String name) {
+//        List<ProductDto> list = service.getProductCategory(name);
+//        return ResponseEntity.ok().body(list);
+//    }
 
 
     @GetMapping(value = "/category/{name}")
