@@ -13,7 +13,7 @@ import java.util.Optional;
 public interface ProductRespository extends JpaRepository<Product, Integer> {
 
 //    List<Product> findByCityCity_name(String name);
-    @Query("SELECT * FROM product WHERE category_id = 1;")
-    List<Product> findBytest();
+    @Query(value = "SELECT * FROM product WHERE category_id = 1;", nativeQuery = true)
+    List<Product> findByAllProduct();
 
 }
