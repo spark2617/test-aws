@@ -24,7 +24,7 @@ public class ProductService {
     @Transactional(readOnly = true)
     public List<ProductDto> getAll() {
         try {
-            List<Product> list = repository.findAll();
+            List<Product> list = repository.findBytest();
             return list.stream().map(ProductDto::new).collect(Collectors.toList());
         }
         catch(EntityNotFoundException e){
