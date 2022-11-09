@@ -54,7 +54,7 @@ public class ImageService {
         Image entity = new Image();
 
         entity.setTitle(dto.getTitle());
-        entity.setUrl_img(dto.getUrl_img());
+        entity.setUrlimg(dto.getUrlimg());
 
         entity = repository.save(entity);
         return new ImageDto(entity);
