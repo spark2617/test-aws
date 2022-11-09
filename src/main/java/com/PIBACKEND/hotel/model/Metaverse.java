@@ -21,7 +21,7 @@ public class Metaverse implements Serializable {
         this.metaversename = metaversename;
     }
 
-    @OneToMany(mappedBy = "metaverse_id")
+    @OneToMany(mappedBy = "metaverseid")
     private Set<Zone> zones;
 
 

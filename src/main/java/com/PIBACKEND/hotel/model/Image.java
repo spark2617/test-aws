@@ -26,8 +26,8 @@ public class Image implements Serializable {
     }
 
     @ManyToOne
-    @JoinColumn(name="product_id")
-    private Product product_id;
+    @JoinColumn(name="productid")
+    private Product productid;
 
     public String getTitle() {
         return title;
@@ -56,11 +56,12 @@ public class Image implements Serializable {
 
     //manyToOne
 
-    public Product getProduct_id() {
-        return product_id;
+
+    public Product getProductid() {
+        return productid;
     }
 
-    public void setProduct_id(Product product_id) {
-        this.product_id = product_id;
+    public void setProductid(Product productid) {
+        this.productid = productid;
     }
 }

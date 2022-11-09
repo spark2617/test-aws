@@ -28,13 +28,13 @@ public class Zone implements Serializable {
     }
 
     @OneToOne
-    @JoinColumn(name="product_id")
-    private Product product_id;
+    @JoinColumn(name="productid")
+    private Product productid;
 
 
     @ManyToOne
-    @JoinColumn(name="metaverse_id")
-    private Metaverse metaverse_id;
+    @JoinColumn(name="metaverseid")
+    private Metaverse metaverseid;
 
 
     //get e set
@@ -66,22 +66,25 @@ public class Zone implements Serializable {
 
     //OneToOne
 
-    public Product getProduct_id() {
-        return product_id;
+    public Product getProductid() {
+        return productid;
     }
 
-    public void setProduct_id(Product product_id) {
-        this.product_id = product_id;
+    public void setProductid(Product productid) {
+        this.productid = productid;
     }
 
 
     //ManyToOne
-
-    public Metaverse getMetaverse_id() {
-        return metaverse_id;
+    public Metaverse getMetaverseid() {
+        return metaverseid;
     }
 
-    public void setMetaverse_id(Metaverse metaverse_id) {
-        this.metaverse_id = metaverse_id;
+    public void setMetaverseid(Metaverse metaverseid) {
+        this.metaverseid = metaverseid;
     }
+
+
+
+
 }

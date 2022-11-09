@@ -29,7 +29,7 @@ public class Category implements Serializable {
 
     //OneToMany
 
-    @OneToMany(mappedBy = "category_id")
+    @OneToMany(mappedBy = "categoryid")
     private Set<Product> lsProduct;
 
 

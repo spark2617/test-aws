@@ -38,17 +38,17 @@ public class Product implements Serializable {
 
     //manyToOne
     @ManyToOne
-    @JoinColumn(name="category_id")
-    private Category category_id;
+    @JoinColumn(name="categoryid")
+    private Category categoryid;
 
-    @OneToOne(mappedBy = "product_id")
-    @JoinColumn(name="zone_id")
-    private Zone zone_id;
+    @OneToOne(mappedBy = "productid")
+    @JoinColumn(name="zoneid")
+    private Zone zoneid;
 
 
 
     //OneToMany de image
-    @OneToMany(mappedBy = "product_id")
+    @OneToMany(mappedBy = "productid")
     private List<Image> images;
 
 
@@ -94,26 +94,26 @@ public class Product implements Serializable {
 
     //manyToOne
     // produto-categoria
-    public Category getCategory_id() {
-        return category_id;
+
+    public Category getCategoryid() {
+        return categoryid;
     }
 
-    public void setCategory_id(Category category_id) {
-        this.category_id = category_id;
+    public void setCategoryid(Category categoryid) {
+        this.categoryid = categoryid;
     }
-
 
 
     //OneToOne
-    public Zone getZone_id() {
-        return zone_id;
+
+
+    public Zone getZoneid() {
+        return zoneid;
     }
 
-    public void setZone_id(Zone zone_id) {
-        this.zone_id = zone_id;
+    public void setZoneid(Zone zoneid) {
+        this.zoneid = zoneid;
     }
-
-
 
     //oneToMany
     //product-Image
