@@ -40,11 +40,11 @@ public class ProductDto implements Serializable {
         this.productdescription=model.getProductdescription();
 
         //OneToOne
-        this.zoneDto=new ZoneDto(model.getZone_id());
+        this.zoneDto=new ZoneDto(model.getZoneid());
 
 
         //manyToOne
-        this.categorys=new CategoryDto(model.getCategory_id());
+        this.categorys=new CategoryDto(model.getCategoryid());
 
 
         //OneToMany

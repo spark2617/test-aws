@@ -64,11 +64,12 @@ public class ImageDto implements Serializable {
     }
 
     //manyToOne
+
     public ProductDto getProductid() {
         return productid;
     }
 
-    public void setProductid(ProductDto product_id) {
-        this.productid = product_id;
+    public void setProductid(ProductDto productid) {
+        this.productid = productid;
     }
 }
