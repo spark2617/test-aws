@@ -12,24 +12,24 @@ public class ImageDto implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    private Integer image_id;
+    private Integer imageid;
     private String title;
-    private String url_img;
+    private String urlimg;
 
     private ProductDto product_id;
 
     public ImageDto(){}
 
     public ImageDto(Integer image_id, String title, String url) {
-        this.image_id = image_id;
+        this.imageid = image_id;
         this.title = title;
-        this.url_img = url;
+        this.urlimg = url;
     }
 
     public ImageDto(Image model){
-        this.image_id =model.getImage_id();
+        this.imageid =model.getImageid();
         this.title=model.getTitle();
-        this.url_img=model.getUrl_img();
+        this.urlimg=model.getUrlimg();
 
         this.product_id=new ProductDto(model.getProduct_id());
 
@@ -37,12 +37,14 @@ public class ImageDto implements Serializable {
     }
 
     //get e set
-    public Integer getImage_id() {
-        return image_id;
+
+
+    public Integer getImageid() {
+        return imageid;
     }
 
-    public void setImage_id(Integer image_id) {
-        this.image_id = image_id;
+    public void setImageid(Integer imageid) {
+        this.imageid = imageid;
     }
 
     public String getTitle() {
@@ -53,15 +55,13 @@ public class ImageDto implements Serializable {
         this.title = title;
     }
 
-    public String getUrl_img() {
-        return url_img;
+    public String getUrlimg() {
+        return urlimg;
     }
 
-    public void setUrl_img(String url_img) {
-        this.url_img = url_img;
+    public void setUrlimg(String urlimg) {
+        this.urlimg = urlimg;
     }
-
-
 
     //manyToOne
     public ProductDto getProduct_id() {

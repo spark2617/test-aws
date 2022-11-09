@@ -10,39 +10,41 @@ public class FeatureDto implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    private Integer feature_id;
-    private String feature_name;
+    private Integer featureid;
+    private String featurename;
     private String icon;
 
     public FeatureDto(){}
 
     public FeatureDto(Integer features_id, String name, String icon) {
-        this.feature_id = features_id;
-        this.feature_name = name;
+        this.featureid = features_id;
+        this.featurename = name;
         this.icon = icon;
     }
 
     public FeatureDto(Feature model){
-        this.feature_id =model.getFeature_id();
-        this.feature_name =model.getFeature_name();
+        this.featureid =model.getFeatureid();
+        this.featurename =model.getFeaturename();
         this.icon=model.getIcon();
     }
 
     //get set
-    public Integer getFeature_id() {
-        return feature_id;
+
+
+    public Integer getFeatureid() {
+        return featureid;
     }
 
-    public void setFeature_id(Integer feature_id) {
-        this.feature_id = feature_id;
+    public void setFeatureid(Integer featureid) {
+        this.featureid = featureid;
     }
 
-    public String getFeature_name() {
-        return feature_name;
+    public String getFeaturename() {
+        return featurename;
     }
 
-    public void setFeature_name(String features_name) {
-        this.feature_name = features_name;
+    public void setFeaturename(String featurename) {
+        this.featurename = featurename;
     }
 
     public String getIcon() {

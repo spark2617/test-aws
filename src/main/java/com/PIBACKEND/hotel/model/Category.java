@@ -12,22 +12,22 @@ public class Category implements Serializable {
 
     @Id//chave primária
     @GeneratedValue(strategy = GenerationType.IDENTITY)//chave estrangeira
-    private Integer category_id;
-    private String category_name;
-    private String category_description;
-    private String url_image;
+    private Integer categoryid;
+    private String categoryname;
+    private String categorydescription;
+    private String urlimage;
 
     public Category() {
     }
 
-    public Category(Integer category_id, String category_name, String category_description, String url_image) {
-        this.category_id = category_id;
-        this.category_name = category_name;
-        this.category_description = category_description;
-        this.url_image = url_image;
+    public Category(Integer categoryid, String categoryname, String categorydescription, String urlimage) {
+        this.categoryid = categoryid;
+        this.categoryname = categoryname;
+        this.categorydescription = categorydescription;
+        this.urlimage = urlimage;
     }
 
-//OneToMany
+    //OneToMany
 
     @OneToMany(mappedBy = "category_id")
     private Set<Product> lsProduct;
@@ -36,36 +36,36 @@ public class Category implements Serializable {
     //get e set
 
 
-    public Integer getCategory_id() {
-        return category_id;
+    public Integer getCategoryid() {
+        return categoryid;
     }
 
-    public void setCategory_id(Integer category_id) {
-        this.category_id = category_id;
+    public void setCategoryid(Integer categoryid) {
+        this.categoryid = categoryid;
     }
 
-    public String getCategory_name() {
-        return category_name;
+    public String getCategoryname() {
+        return categoryname;
     }
 
-    public void setCategory_name(String category_name) {
-        this.category_name = category_name;
+    public void setCategoryname(String categoryname) {
+        this.categoryname = categoryname;
     }
 
-    public String getCategory_description() {
-        return category_description;
+    public String getCategorydescription() {
+        return categorydescription;
     }
 
-    public void setCategory_description(String category_description) {
-        this.category_description = category_description;
+    public void setCategorydescription(String categorydescription) {
+        this.categorydescription = categorydescription;
     }
 
-    public String getUrl_image() {
-        return url_image;
+    public String getUrlimage() {
+        return urlimage;
     }
 
-    public void setUrl_image(String url_image) {
-        this.url_image = url_image;
+    public void setUrlimage(String urlimage) {
+        this.urlimage = urlimage;
     }
 
 

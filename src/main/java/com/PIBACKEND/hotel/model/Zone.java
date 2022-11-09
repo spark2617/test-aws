@@ -12,7 +12,7 @@ public class Zone implements Serializable {
 
     @Id//chave primária
     @GeneratedValue(strategy = GenerationType.IDENTITY)//chave estrangeira
-    private Integer zone_id;
+    private Integer zoneid;
     private double latitude;
     private double longitude;
 
@@ -21,8 +21,8 @@ public class Zone implements Serializable {
 
     public Zone(){}
 
-    public Zone(Integer zone_id, double latitude, double longitude) {
-        this.zone_id = zone_id;
+    public Zone(Integer zoneid, double latitude, double longitude) {
+        this.zoneid = zoneid;
         this.latitude = latitude;
         this.longitude = longitude;
     }
@@ -39,12 +39,13 @@ public class Zone implements Serializable {
 
     //get e set
 
-    public Integer getZone_id() {
-        return zone_id;
+
+    public Integer getZoneid() {
+        return zoneid;
     }
 
-    public void setZone_id(Integer zone_id) {
-        this.zone_id = zone_id;
+    public void setZoneid(Integer zoneid) {
+        this.zoneid = zoneid;
     }
 
     public double getLatitude() {

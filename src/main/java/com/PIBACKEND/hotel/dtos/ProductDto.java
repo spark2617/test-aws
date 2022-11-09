@@ -11,9 +11,9 @@ public class ProductDto implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    private Integer product_id;
-    private String product_name;
-    private String product_description;
+    private Integer productid;
+    private String productname;
+    private String productdescription;
 
     private Set<FeatureDto> featureDtoList =new HashSet<>();
 
@@ -26,18 +26,18 @@ public class ProductDto implements Serializable {
     public ProductDto(){}
 
     public ProductDto(Integer product_id, String name, String description) {
-        this.product_id = product_id;
-        this.product_name = name;
-        this.product_description = description;
+        this.productid = product_id;
+        this.productname = name;
+        this.productdescription = description;
     }
 
     //contrutor dto
 
     public ProductDto(Product model){
 
-        this.product_id=model.getProduct_id();
-        this.product_name=model.getProduct_name();
-        this.product_description=model.getProduct_description();
+        this.productid=model.getProductid();
+        this.productname=model.getProductname();
+        this.productdescription=model.getProductdescription();
 
         //OneToOne
         this.zoneDto=new ZoneDto(model.getZone_id());
@@ -59,29 +59,31 @@ public class ProductDto implements Serializable {
     }
 
     //get e set
-    public Integer getProduct_id() {
-        return product_id;
+
+    public Integer getProductid() {
+        return productid;
     }
 
-    public void setProduct_id(Integer product_id) {
-        this.product_id = product_id;
+    public void setProductid(Integer productid) {
+        this.productid = productid;
     }
 
-    public String getProduct_name() {
-        return product_name;
+    public String getProductname() {
+        return productname;
     }
 
-    public void setProduct_name(String product_name) {
-        this.product_name = product_name;
+    public void setProductname(String productname) {
+        this.productname = productname;
     }
 
-    public String getProduct_description() {
-        return product_description;
+    public String getProductdescription() {
+        return productdescription;
     }
 
-    public void setProduct_description(String product_description) {
-        this.product_description = product_description;
+    public void setProductdescription(String productdescription) {
+        this.productdescription = productdescription;
     }
+
 
 //manyToMany
 

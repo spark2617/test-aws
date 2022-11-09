@@ -54,25 +54,25 @@ public class ProductService {
 
         Product entity = new Product();
 
-        entity.setProduct_name(dto.getProduct_name());
-        entity.setProduct_description(dto.getProduct_description());
+        entity.setProductname(dto.getProductname());
+        entity.setProductdescription(dto.getProductdescription());
 
         entity = repository.save(entity);
         return new ProductDto(entity);
     }
 
     //buscar product pelo metaverse
-
-    @Transactional(readOnly = true)
-    public List<ProductDto> getProductZone(String name) {
-        try {
-            List<Product> list = repository.findByMetaverseMetaverse_name(name);
-            return list.stream().map(ProductDto::new).collect(Collectors.toList());
-        }
-        catch(EntityNotFoundException e){
-            throw new EntityNotFoundExceptionHotel("Record not found!");
-        }
-    }
+//
+//    @Transactional(readOnly = true)
+//    public List<ProductDto> getProductZone(String name) {
+//        try {
+//            List<Product> list = repository.findByMetaverseMetaverse_name(name);
+//            return list.stream().map(ProductDto::new).collect(Collectors.toList());
+//        }
+//        catch(EntityNotFoundException e){
+//            throw new EntityNotFoundExceptionHotel("Record not found!");
+//        }
+//    }
 
 
 
@@ -80,7 +80,7 @@ public class ProductService {
     @Transactional(readOnly = true)
     public List<ProductDto> getProductCategory(String name) {
         try {
-            List<Product> list = repository.findByCategoryCategory_name(name);
+            List<Product> list = repository.findByCategoryCategoryname(name);
             return list.stream().map(ProductDto::new).collect(Collectors.toList());
         }
         catch(EntityNotFoundException e){

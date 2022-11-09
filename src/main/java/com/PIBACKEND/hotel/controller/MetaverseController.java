@@ -45,7 +45,7 @@ public class MetaverseController {
     public ResponseEntity<MetaverseDto> insertCategory(@RequestBody MetaverseDto dto) {
         dto = service.insert(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-                .buildAndExpand(dto.getMetaverse_id()).toUri();
+                .buildAndExpand(dto.getMetaverseid()).toUri();
         return ResponseEntity.created(uri).body(dto);
     }
 

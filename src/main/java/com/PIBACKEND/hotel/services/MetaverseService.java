@@ -54,7 +54,7 @@ public class MetaverseService {
 
         Metaverse entity = new Metaverse();
 
-        entity.setMetaverse_name(dto.getMetaverse_name());
+        entity.setMetaversename(dto.getMetaversename());
 
         entity = repository.save(entity);
         return new MetaverseDto(entity);

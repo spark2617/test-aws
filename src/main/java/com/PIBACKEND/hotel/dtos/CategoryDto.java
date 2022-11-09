@@ -10,10 +10,10 @@ public class CategoryDto implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    private Integer category_id;
-    private String category_name;
-    private String category_description;
-    private String url_image;
+    private Integer categoryid;
+    private String categoryname;
+    private String categorydescription;
+    private String urlimage;
 
     private Set<ProductDto> Products;
 
@@ -21,56 +21,56 @@ public class CategoryDto implements Serializable {
     }
 
     public CategoryDto(Integer category_id, String category_name, String category_description, String url_image) {
-        this.category_id = category_id;
-        this.category_name = category_name;
-        this.category_description = category_description;
-        this.url_image = url_image;
+        this.categoryid = category_id;
+        this.categoryname = category_name;
+        this.categorydescription = category_description;
+        this.urlimage = url_image;
     }
 
     public CategoryDto(Category category) {
-        this.category_id = category.getCategory_id();
-        this.category_name=category.getCategory_name();
-        this.category_description = category.getCategory_description();
-        this.url_image = category.getUrl_image();
+        this.categoryid = category.getCategoryid();
+        this.categoryname=category.getCategoryname();
+        this.categorydescription = category.getCategorydescription();
+        this.urlimage = category.getUrlimage();
 
 
         //oneToMany
         category.getLsProduct().forEach(end->this.Products.add(new ProductDto(end)));
     }
 
-    public Integer getCategory_id() {
-        return category_id;
+    public Integer getCategoryid() {
+        return categoryid;
     }
 
-    public void setCategory_id(Integer category_id) {
-        this.category_id = category_id;
+    public void setCategoryid(Integer categoryid) {
+        this.categoryid = categoryid;
     }
 
-    public String getCategory_name() {
-        return category_name;
+    public String getCategoryname() {
+        return categoryname;
     }
 
-    public void setCategory_name(String category_name) {
-        this.category_name = category_name;
+    public void setCategoryname(String categoryname) {
+        this.categoryname = categoryname;
     }
 
-    public String getCategory_description() {
-        return category_description;
+    public String getCategorydescription() {
+        return categorydescription;
     }
 
-    public void setCategory_description(String category_description) {
-        this.category_description = category_description;
+    public void setCategorydescription(String categorydescription) {
+        this.categorydescription = categorydescription;
     }
 
-    public String getUrl_image() {
-        return url_image;
+    public String getUrlimage() {
+        return urlimage;
     }
 
-    public void setUrl_image(String url_image) {
-        this.url_image = url_image;
+    public void setUrlimage(String urlimage) {
+        this.urlimage = urlimage;
     }
 
-//oneToMany
+    //oneToMany
 
 
     public Set<ProductDto> getLsProducts() {

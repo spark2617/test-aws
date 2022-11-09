@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface ProductRespository extends JpaRepository<Product, Integer> {
 
-    List<Product> findByMetaverseMetaverse_name(String name);
-    List<Product> findByCategoryCategory_name(String name);
+//    List<Product> findByMetaverseMetaversename(String name);
+    List<Product> findByCategoryCategoryname(String name);
 
 }

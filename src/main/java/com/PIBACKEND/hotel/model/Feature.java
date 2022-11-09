@@ -10,36 +10,37 @@ public class Feature implements Serializable {
 
     @Id//chave primária
     @GeneratedValue(strategy = GenerationType.IDENTITY)//chave estrangeira
-    private Integer feature_id;
-    private String feature_name;
+    private Integer featureid;
+    private String featurename;
     private String icon;
 
     //contrutor
 
     public Feature(){}
 
-    public Feature(Integer features_id, String features_name, String icon) {
-        this.feature_id = features_id;
-        this.feature_name = features_name;
+    public Feature(Integer featureid, String featurename, String icon) {
+        this.featureid = featureid;
+        this.featurename = featurename;
         this.icon = icon;
     }
 
     //get e set
 
-    public Integer getFeature_id() {
-        return feature_id;
+
+    public Integer getFeatureid() {
+        return featureid;
     }
 
-    public void setFeature_id(Integer feature_id) {
-        this.feature_id = feature_id;
+    public void setFeatureid(Integer featureid) {
+        this.featureid = featureid;
     }
 
-    public String getFeature_name() {
-        return feature_name;
+    public String getFeaturename() {
+        return featurename;
     }
 
-    public void setFeature_name(String feature_name) {
-        this.feature_name = feature_name;
+    public void setFeaturename(String featurename) {
+        this.featurename = featurename;
     }
 
     public String getIcon() {

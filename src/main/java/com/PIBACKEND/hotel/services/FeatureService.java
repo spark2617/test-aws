@@ -53,7 +53,7 @@ public class FeatureService {
 
         Feature entity = new Feature();
 
-        entity.setFeature_name(dto.getFeature_name());
+        entity.setFeaturename(dto.getFeaturename());
         entity.setIcon(dto.getIcon());
 
         entity = repository.save(entity);

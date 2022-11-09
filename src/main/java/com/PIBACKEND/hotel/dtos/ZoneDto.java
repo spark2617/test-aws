@@ -11,7 +11,7 @@ public class ZoneDto implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    private Integer zone_id;
+    private Integer zoneid;
     private double latitude;
     private double longitude;
 
@@ -27,8 +27,8 @@ public class ZoneDto implements Serializable {
 
     public ZoneDto(){}
 
-    public ZoneDto(Integer zone_id, double latitude, double longitude) {
-        this.zone_id = zone_id;
+    public ZoneDto(Integer zoneid, double latitude, double longitude) {
+        this.zoneid = zoneid;
         this.latitude = latitude;
         this.longitude = longitude;
     }
@@ -49,11 +49,11 @@ public class ZoneDto implements Serializable {
     //get e set
 
     public Integer getZone_id() {
-        return zone_id;
+        return zoneid;
     }
 
     public void setZone_id(Integer zone_id) {
-        this.zone_id = zone_id;
+        this.zoneid = zone_id;
     }
 
     public double getLatitude() {

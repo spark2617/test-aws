@@ -53,9 +53,9 @@ public class CategoryService{
 
         Category entity = new Category();
 
-        entity.setCategory_name(dto.getCategory_name());
-        entity.setCategory_description(dto.getCategory_description());
-        entity.setUrl_image(dto.getUrl_image());
+        entity.setCategoryname(dto.getCategoryname());
+        entity.setCategorydescription(dto.getCategorydescription());
+        entity.setUrlimage(dto.getUrlimage());
 
         entity = repository.save(entity);
         return new CategoryDto(entity);
