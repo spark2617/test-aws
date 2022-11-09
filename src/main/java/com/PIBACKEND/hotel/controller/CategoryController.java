@@ -43,7 +43,7 @@ public class CategoryController {
     public ResponseEntity<CategoryDto> insertCategory(@RequestBody CategoryDto dto) {
         dto = service.insert(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-                .buildAndExpand(dto.getCategoryid()).toUri();
+                .buildAndExpand(dto.getCategory_id()).toUri();
         return ResponseEntity.created(uri).body(dto);
     }
 

@@ -54,39 +54,24 @@ public class ProductService {
 
         Product entity = new Product();
 
-        entity.setProductname(dto.getProductname());
-        entity.setProductdescription(dto.getProductdescription());
+        entity.setProduct_name(dto.getProduct_name());
+        entity.setProduct_description(dto.getProduct_description());
 
         entity = repository.save(entity);
         return new ProductDto(entity);
     }
 
-    //buscar product pelo metaverse
-//
+
+
 //    @Transactional(readOnly = true)
-//    public List<ProductDto> getProductZone(String name) {
+//    public List<ProductDto> getNameCategory(String name) {
 //        try {
-//            List<Product> list = repository.findByMetaverseMetaverse_name(name);
+//            List<Product> list = respository.findByCityName(name);
 //            return list.stream().map(ProductDto::new).collect(Collectors.toList());
 //        }
 //        catch(EntityNotFoundException e){
 //            throw new EntityNotFoundExceptionHotel("Record not found!");
 //        }
 //    }
-
-
-
-    //buscar product pela categoria
-    @Transactional(readOnly = true)
-    public List<ProductDto> getProductCategory(String name) {
-        try {
-            List<Product> list = repository.findByCategoryCategoryname(name);
-            return list.stream().map(ProductDto::new).collect(Collectors.toList());
-        }
-        catch(EntityNotFoundException e){
-            throw new EntityNotFoundExceptionHotel("Record not found!");
-        }
-    }
-
 
 }

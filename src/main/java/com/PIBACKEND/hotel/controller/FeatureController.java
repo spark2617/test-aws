@@ -43,7 +43,7 @@ public class FeatureController {
     public ResponseEntity<FeatureDto> insertFeatures(@RequestBody FeatureDto dto) {
         dto = service.insert(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-                .buildAndExpand(dto.getFeatureid()).toUri();
+                .buildAndExpand(dto.getFeature_id()).toUri();
         return ResponseEntity.created(uri).body(dto);
     }
 

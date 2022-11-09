@@ -11,36 +11,36 @@ public class Metaverse implements Serializable {
 
     @Id//chave primária
     @GeneratedValue(strategy = GenerationType.IDENTITY)//chave estrangeira
-    private Integer metaverseid;
-    private String metaversename;
+    private Integer metaverse_id;
+    private String metaverse_name;
 
     public Metaverse(){}
 
-    public Metaverse(Integer metaverseid, String metaversename) {
-        this.metaverseid = metaverseid;
-        this.metaversename = metaversename;
+    public Metaverse(Integer metaverse_id, String metaverse_name) {
+        this.metaverse_id = metaverse_id;
+        this.metaverse_name = metaverse_name;
     }
 
-    @OneToMany(mappedBy = "metaverseid")
+
+    @OneToMany(mappedBy = "metaverse_id")
     private Set<Zone> zones;
 
 
     //get e set
-
-    public Integer getMetaverseid() {
-        return metaverseid;
+    public Integer getMetaverse_id() {
+        return metaverse_id;
     }
 
-    public void setMetaverseid(Integer metaverseid) {
-        this.metaverseid = metaverseid;
+    public void setMetaverse_id(Integer metaverse_id) {
+        this.metaverse_id = metaverse_id;
     }
 
-    public String getMetaversename() {
-        return metaversename;
+    public String getMetaverse_name() {
+        return metaverse_name;
     }
 
-    public void setMetaversename(String metaversename) {
-        this.metaversename = metaversename;
+    public void setMetaverse_name(String metaverse_name) {
+        this.metaverse_name = metaverse_name;
     }
 
 

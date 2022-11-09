@@ -12,39 +12,37 @@ public class ImageDto implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    private Integer imageid;
+    private Integer image_id;
     private String title;
-    private String urlimg;
+    private String url_img;
 
-    private ProductDto productid;
+    private ProductDto product_id;
 
     public ImageDto(){}
 
-    public ImageDto(Integer imageid, String title, String urlimg) {
-        this.imageid = imageid;
+    public ImageDto(Integer image_id, String title, String url) {
+        this.image_id = image_id;
         this.title = title;
-        this.urlimg = urlimg;
+        this.url_img = url;
     }
 
     public ImageDto(Image model){
-        this.imageid =model.getImageid();
+        this.image_id =model.getImage_id();
         this.title=model.getTitle();
-        this.urlimg=model.getUrlimg();
+        this.url_img=model.getUrl_img();
 
-        this.productid=new ProductDto(model.getProductid());
+        this.product_id=new ProductDto(model.getProduct_id());
 
 
     }
 
     //get e set
-
-
-    public Integer getImageid() {
-        return imageid;
+    public Integer getImage_id() {
+        return image_id;
     }
 
-    public void setImageid(Integer imageid) {
-        this.imageid = imageid;
+    public void setImage_id(Integer image_id) {
+        this.image_id = image_id;
     }
 
     public String getTitle() {
@@ -55,21 +53,22 @@ public class ImageDto implements Serializable {
         this.title = title;
     }
 
-    public String getUrlimg() {
-        return urlimg;
+    public String getUrl_img() {
+        return url_img;
     }
 
-    public void setUrlimg(String urlimg) {
-        this.urlimg = urlimg;
+    public void setUrl_img(String url_img) {
+        this.url_img = url_img;
     }
+
+
 
     //manyToOne
-
-    public ProductDto getProductid() {
-        return productid;
+    public ProductDto getProduct_id() {
+        return product_id;
     }
 
-    public void setProductid(ProductDto productid) {
-        this.productid = productid;
+    public void setProduct_id(ProductDto product_id) {
+        this.product_id = product_id;
     }
 }

@@ -12,7 +12,7 @@ public class Zone implements Serializable {
 
     @Id//chave primária
     @GeneratedValue(strategy = GenerationType.IDENTITY)//chave estrangeira
-    private Integer zoneid;
+    private Integer zone_id;
     private double latitude;
     private double longitude;
 
@@ -21,31 +21,30 @@ public class Zone implements Serializable {
 
     public Zone(){}
 
-    public Zone(Integer zoneid, double latitude, double longitude) {
-        this.zoneid = zoneid;
+    public Zone(Integer zone_id, double latitude, double longitude) {
+        this.zone_id = zone_id;
         this.latitude = latitude;
         this.longitude = longitude;
     }
 
     @OneToOne
-    @JoinColumn(name="productid")
-    private Product productid;
+    @JoinColumn(name="product_id")
+    private Product product_id;
 
 
     @ManyToOne
-    @JoinColumn(name="metaverseid")
-    private Metaverse metaverseid;
+    @JoinColumn(name="metaverse_id")
+    private Metaverse metaverse_id;
 
 
     //get e set
 
-
-    public Integer getZoneid() {
-        return zoneid;
+    public Integer getZone_id() {
+        return zone_id;
     }
 
-    public void setZoneid(Integer zoneid) {
-        this.zoneid = zoneid;
+    public void setZone_id(Integer zone_id) {
+        this.zone_id = zone_id;
     }
 
     public double getLatitude() {
@@ -66,25 +65,22 @@ public class Zone implements Serializable {
 
     //OneToOne
 
-    public Product getProductid() {
-        return productid;
+    public Product getProduct_id() {
+        return product_id;
     }
 
-    public void setProductid(Product productid) {
-        this.productid = productid;
+    public void setProduct_id(Product product_id) {
+        this.product_id = product_id;
     }
 
 
     //ManyToOne
-    public Metaverse getMetaverseid() {
-        return metaverseid;
+
+    public Metaverse getMetaverse_id() {
+        return metaverse_id;
     }
 
-    public void setMetaverseid(Metaverse metaverseid) {
-        this.metaverseid = metaverseid;
+    public void setMetaverse_id(Metaverse metaverse_id) {
+        this.metaverse_id = metaverse_id;
     }
-
-
-
-
 }

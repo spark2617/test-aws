@@ -10,24 +10,38 @@ public class Image implements Serializable {
 
     @Id//chave primária
     @GeneratedValue(strategy = GenerationType.IDENTITY)//chave estrangeira
-    private Integer imageid;
+    private Integer image_id;
     private String title;
-    private String urlimg;
+    private String url_img;
 
 
 
     //construtor
     public Image(){}
 
-    public Image(Integer imageid, String title, String urlimg) {
-        this.imageid = imageid;
+    public Image(Integer images_id, String title, String url_img) {
+        this.image_id = images_id;
         this.title = title;
-        this.urlimg = urlimg;
+        this.url_img = url_img;
     }
 
+
+
     @ManyToOne
-    @JoinColumn(name="productid")
-    private Product productid;
+    @JoinColumn(name="product_id")
+    private Product product_id;
+
+
+
+
+    //get e set
+    public Integer getImage_id() {
+        return image_id;
+    }
+
+    public void setImage_id(Integer image_id) {
+        this.image_id = image_id;
+    }
 
     public String getTitle() {
         return title;
@@ -37,31 +51,24 @@ public class Image implements Serializable {
         this.title = title;
     }
 
-    public Integer getImageid() {
-        return imageid;
+    public String getUrl_img() {
+        return url_img;
     }
 
-    public void setImageid(Integer imageid) {
-        this.imageid = imageid;
+    public void setUrl_img(String url_img) {
+        this.url_img = url_img;
     }
 
-    public String getUrlimg() {
-        return urlimg;
-    }
 
-    public void setUrlimg(String urlimg) {
-        this.urlimg = urlimg;
-    }
 
 
     //manyToOne
 
-
-    public Product getProductid() {
-        return productid;
+    public Product getProduct_id() {
+        return product_id;
     }
 
-    public void setProductid(Product productid) {
-        this.productid = productid;
+    public void setProduct_id(Product product_id) {
+        this.product_id = product_id;
     }
 }

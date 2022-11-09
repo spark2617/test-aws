@@ -42,7 +42,7 @@ public class ImageController {
     public ResponseEntity<ImageDto> insertImages(@RequestBody ImageDto dto) {
         dto = service.insert(dto);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-                .buildAndExpand(dto.getImageid()).toUri();
+                .buildAndExpand(dto.getImage_id()).toUri();
         return ResponseEntity.created(uri).body(dto);
     }
 

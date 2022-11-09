@@ -9,8 +9,8 @@ public class MetaverseDto {
     @Serial
     private static final long serialVersionUID = 1L;
 
-    private Integer metaverseid;
-    private String metaversename;
+    private Integer metaverse_id;
+    private String metaverse_name;
 
     private Set<ZoneDto> zones;
 
@@ -18,13 +18,13 @@ public class MetaverseDto {
     public MetaverseDto(){}
 
     public MetaverseDto(Integer metaverse_id, String metaverse_name) {
-        this.metaverseid = metaverse_id;
-        this.metaversename = metaverse_name;
+        this.metaverse_id = metaverse_id;
+        this.metaverse_name = metaverse_name;
     }
 
     public MetaverseDto(Metaverse model){
-        this.metaverseid=model.getMetaverseid();
-        this.metaversename=model.getMetaversename();
+        this.metaverse_id=model.getMetaverse_id();
+        this.metaverse_name=model.getMetaverse_name();
 
         model.getZones().forEach(end->this.zones.add(new ZoneDto(end)));
 
@@ -34,21 +34,22 @@ public class MetaverseDto {
     //get e set
 
 
-    public Integer getMetaverseid() {
-        return metaverseid;
+    public Integer getMetaverse_id() {
+        return metaverse_id;
     }
 
-    public void setMetaverseid(Integer metaverseid) {
-        this.metaverseid = metaverseid;
+    public void setMetaverse_id(Integer metaverse_id) {
+        this.metaverse_id = metaverse_id;
     }
 
-    public String getMetaversename() {
-        return metaversename;
+    public String getMetaverse_name() {
+        return metaverse_name;
     }
 
-    public void setMetaversename(String metaversename) {
-        this.metaversename = metaversename;
+    public void setMetaverse_name(String metaverse_name) {
+        this.metaverse_name = metaverse_name;
     }
+
 
     //OneToMany
     public Set<ZoneDto> getZones() {

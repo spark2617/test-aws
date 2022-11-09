@@ -13,24 +13,24 @@ public class Product implements Serializable {
 
     @Id//chave primária
     @GeneratedValue(strategy = GenerationType.IDENTITY)//chave estrangeira
-    private Integer productid;
-    private String productname;
-    private String productdescription;
+    private Integer product_id;
+    private String product_name;
+    private String product_description;
 
     //contrutores
     public Product(){}
 
-    public Product(Integer productid, String productname, String productdescription) {
-        this.productid = productid;
-        this.productname = productname;
-        this.productdescription = productdescription;
+    public Product(Integer product_id, String product_name, String product_description) {
+        this.product_id = product_id;
+        this.product_name = product_name;
+        this.product_description = product_description;
     }
 
     //manyToMany
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name="productfeature",
-            joinColumns = @JoinColumn(name = "productid"),
-            inverseJoinColumns = @JoinColumn(name = "featureid"))
+    @JoinTable(name="product_feature",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "feature_id"))
     private Set<Feature> featureList =new HashSet<>();
 
 
@@ -38,47 +38,47 @@ public class Product implements Serializable {
 
     //manyToOne
     @ManyToOne
-    @JoinColumn(name="categoryid")
-    private Category categoryid;
+    @JoinColumn(name="category_id")
+    private Category category_id;
 
-    @OneToOne(mappedBy = "productid")
-    @JoinColumn(name="zoneid")
-    private Zone zoneid;
+    @OneToOne(mappedBy = "product_id")
+    @JoinColumn(name="zone_id")
+    private Zone zone_id;
 
 
 
     //OneToMany de image
-    @OneToMany(mappedBy = "productid")
+    @OneToMany(mappedBy = "product_id")
     private List<Image> images;
 
 
 
     //get e set
-
-
-    public Integer getProductid() {
-        return productid;
+    public Integer getProduct_id() {
+        return product_id;
     }
 
-    public void setProductid(Integer productid) {
-        this.productid = productid;
+    public void setProduct_id(Integer product_id) {
+        this.product_id = product_id;
     }
 
-    public String getProductname() {
-        return productname;
+    public String getProduct_name() {
+        return product_name;
     }
 
-    public void setProductname(String productname) {
-        this.productname = productname;
+    public void setProduct_name(String product_name) {
+        this.product_name = product_name;
     }
 
-    public String getProductdescription() {
-        return productdescription;
+    public String getProduct_description() {
+        return product_description;
     }
 
-    public void setProductdescription(String productdescription) {
-        this.productdescription = productdescription;
+    public void setProduct_description(String product_description) {
+        this.product_description = product_description;
     }
+
+
 
     //manyToMany
     public Set<Feature> getFeatureList() {
@@ -94,26 +94,26 @@ public class Product implements Serializable {
 
     //manyToOne
     // produto-categoria
-
-    public Category getCategoryid() {
-        return categoryid;
+    public Category getCategory_id() {
+        return category_id;
     }
 
-    public void setCategoryid(Category categoryid) {
-        this.categoryid = categoryid;
+    public void setCategory_id(Category category_id) {
+        this.category_id = category_id;
     }
+
 
 
     //OneToOne
-
-
-    public Zone getZoneid() {
-        return zoneid;
+    public Zone getZone_id() {
+        return zone_id;
     }
 
-    public void setZoneid(Zone zoneid) {
-        this.zoneid = zoneid;
+    public void setZone_id(Zone zone_id) {
+        this.zone_id = zone_id;
     }
+
+
 
     //oneToMany
     //product-Image
