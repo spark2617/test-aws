@@ -31,14 +31,21 @@ public class ProductController {
         return ResponseEntity.ok().body(dto);
     }
 
-//    @GetMapping(value = "/product/{name}")
-//    public ResponseEntity<List<ProductDto>> getProductToCategoryName(@PathVariable String name) {
-//        List<ProductDto> list = service.getNameCategory(name);
-//        return ResponseEntity.ok().body(list);
-//    }
+    @GetMapping(value = "/metaverse/{name}")
+    public ResponseEntity<List<ProductDto>> getProductToMetaverseName(@PathVariable String name) {
+        List<ProductDto> list = service.getProductZone(name);
+        return ResponseEntity.ok().body(list);
+    }
 
 
-    @DeleteMapping(value = "delete/{id}")
+    @GetMapping(value = "/category/{name}")
+    public ResponseEntity<List<ProductDto>> getProductToCategoryName(@PathVariable String name) {
+        List<ProductDto> list = service.getProductCategory(name);
+        return ResponseEntity.ok().body(list);
+    }
+
+
+    @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> deleteProduct(@PathVariable Integer id) {
         service.delete(id);
         return ResponseEntity.noContent().build();
