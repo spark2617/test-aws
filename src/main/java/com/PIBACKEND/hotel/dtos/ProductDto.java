@@ -48,7 +48,7 @@ public class ProductDto implements Serializable {
 
 
         //OneToMany
-        //model.getImages().forEach(end->this.images.add(new ImageDto(end)));
+        model.getImages().forEach(end->this.images.add(new ImageDto(end)));
 
 
 
