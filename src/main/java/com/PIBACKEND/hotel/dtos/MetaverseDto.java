@@ -3,6 +3,7 @@ package com.PIBACKEND.hotel.dtos;
 import com.PIBACKEND.hotel.model.Metaverse;
 
 import java.io.Serial;
+import java.util.HashSet;
 import java.util.Set;
 
 public class MetaverseDto {
@@ -12,7 +13,7 @@ public class MetaverseDto {
     private Integer metaverse_id;
     private String metaverse_name;
 
-    private Set<ZoneDto> zones;
+    private Set<ZoneDto> zones =new HashSet<>();
 
 
     public MetaverseDto(){}
@@ -26,7 +27,7 @@ public class MetaverseDto {
         this.metaverse_id=model.getMetaverse_id();
         this.metaverse_name=model.getMetaverse_name();
 
-       //model.getZones().forEach(end->this.zones.add(new ZoneDto(end)));
+       model.getZones().forEach(end->this.zones.add(new ZoneDto(end)));
 
 
     }
