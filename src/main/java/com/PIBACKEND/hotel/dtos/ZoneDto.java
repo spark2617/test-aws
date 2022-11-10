@@ -42,7 +42,7 @@ public class ZoneDto implements Serializable {
         this.metaverseDto=new MetaverseDto(model.getMetaverse_id());
 
         //oneToOne
-       // model.getProduct_id().forEach(end->this.productDto.add(new ProductDto(end)));
+       model.getProduct_id().forEach(end->this.productDto.add(new ProductDto(end)));
 
     }
 
