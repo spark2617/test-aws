@@ -17,30 +17,13 @@ public class Product implements Serializable {
     private String product_name;
     private String product_description;
 
-
     //contrutores
     public Product(){}
 
-    @ManyToOne
-    @JoinColumn(name="category_id")
-    private Category category_id;
-
-    @ManyToOne
-    @JoinColumn(name="zone_id")
-    private Zone zone_id;
-
-
-    //OneToMany de image
-    @OneToMany(mappedBy = "product_id")
-    private List<Image> images;
-
-
-    public Product(Integer product_id, String product_name, String product_description,Category category_id, Zone zone_id) {
+    public Product(Integer product_id, String product_name, String product_description) {
         this.product_id = product_id;
         this.product_name = product_name;
         this.product_description = product_description;
-        this.category_id = category_id;
-        this.zone_id = zone_id;
     }
 
     //manyToMany
@@ -54,6 +37,19 @@ public class Product implements Serializable {
 
 
     //manyToOne
+    @ManyToOne
+    @JoinColumn(name="category_id")
+    private Category category_id;
+
+    @ManyToOne
+    @JoinColumn(name="zone_id")
+    private Zone zone_id;
+
+
+    //OneToMany de image
+    @OneToMany(mappedBy = "product_id")
+    private List<Image> images;
+
 
 
     //get e set

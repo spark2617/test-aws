@@ -1,8 +1,6 @@
 package com.PIBACKEND.hotel.dtos;
 
-import com.PIBACKEND.hotel.model.Category;
 import com.PIBACKEND.hotel.model.Product;
-import com.PIBACKEND.hotel.model.Zone;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -14,27 +12,23 @@ public class ProductDto implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private Integer product_id;
-    private Zone zone_id;
-    private Category category_id;
     private String product_name;
     private String product_description;
 
     private Set<FeatureDto> featureDtoList =new HashSet<>();
 
-    private CategoryDto categoryDto;
-
+//    private CategoryDto categorys;
+        private String category;
     private Set<ImageDto> images=new HashSet<>();
 
     private ZoneDto zoneDto;
 
     public ProductDto(){}
 
-    public ProductDto(Integer product_id, String product_name, String product_description, Category category_id, Zone zone_id) {
+    public ProductDto(Integer product_id, String name, String description) {
         this.product_id = product_id;
-        this.product_name = product_name;
-        this.product_description = product_description;
-        this.category_id = category_id;
-        this.zone_id = zone_id;
+        this.product_name = name;
+        this.product_description = description;
     }
 
     //contrutor dto
@@ -46,10 +40,11 @@ public class ProductDto implements Serializable {
         this.product_description=model.getProduct_description();
 
         //OneToOne
-        this.zoneDto=new ZoneDto(model.getZone_id());
+        //this.zoneDto=new ZoneDto(model.getZone_id());
+
 
         //manyToOne
-        this.categoryDto =new CategoryDto(model.getCategory_id());
+        this.category=model.getCategory_id().getCategory_name();
 
 
         //OneToMany
@@ -70,22 +65,6 @@ public class ProductDto implements Serializable {
 
     public void setProduct_id(Integer product_id) {
         this.product_id = product_id;
-    }
-
-    public Zone getZone_id() {
-        return zone_id;
-    }
-
-    public void setZone_id(Zone zone_id) {
-        this.zone_id = zone_id;
-    }
-
-    public Category getCategory_id() {
-        return category_id;
-    }
-
-    public void setCategory_id(Category category_id) {
-        this.category_id = category_id;
     }
 
     public String getProduct_name() {
@@ -117,14 +96,21 @@ public class ProductDto implements Serializable {
 
     //ManyToOne
 
-    public CategoryDto getCategoryDto() {
-        return categoryDto;
+//    public CategoryDto getCategorys() {
+//        return categorys;
+//    }
+//
+//    public void setCategorys(CategoryDto categorys) {
+//        this.categorys = categorys;
+//    }
+
+    public String getCategory() {
+        return category;
     }
 
-    public void setCategoryDto(CategoryDto categoryDto) {
-        this.categoryDto = categoryDto;
+    public void setCategory(String category) {
+        this.category = category;
     }
-
 
 
     //oneToMany
