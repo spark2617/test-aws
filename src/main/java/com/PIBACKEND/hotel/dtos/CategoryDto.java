@@ -18,7 +18,7 @@ public class CategoryDto implements Serializable {
     private String category_description;
     private String url_image;
 
-    private Set<Integer> products=new HashSet<Integer>();
+    private Set<Integer> products=new HashSet<>();
 
     public CategoryDto() {
     }
