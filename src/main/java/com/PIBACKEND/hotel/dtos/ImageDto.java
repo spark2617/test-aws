@@ -31,7 +31,7 @@ public class ImageDto implements Serializable {
         this.title=model.getTitle();
         this.url_img=model.getUrl_img();
 
-        this.product_id=new ProductDto(model.getProduct_id());
+        
 
 
     }
