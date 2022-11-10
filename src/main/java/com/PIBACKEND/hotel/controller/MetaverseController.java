@@ -1,9 +1,6 @@
 package com.PIBACKEND.hotel.controller;
 
-import com.PIBACKEND.hotel.dtos.CategoryDto;
 import com.PIBACKEND.hotel.dtos.MetaverseDto;
-import com.PIBACKEND.hotel.model.Metaverse;
-import com.PIBACKEND.hotel.services.CategoryService;
 import com.PIBACKEND.hotel.services.MetaverseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

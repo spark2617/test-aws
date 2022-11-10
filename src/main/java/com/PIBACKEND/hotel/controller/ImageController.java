@@ -12,7 +12,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping(value = "/Image")
+@RequestMapping(value = "/image")
 public class ImageController {
 
     @Autowired

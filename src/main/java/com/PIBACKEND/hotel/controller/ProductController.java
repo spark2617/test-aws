@@ -13,7 +13,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping(value = "/products")
+@RequestMapping(value = "/product")
 public class ProductController {
 
     @Autowired
@@ -25,14 +25,14 @@ public class ProductController {
         return ResponseEntity.ok().body(list);
     }
 
-    @GetMapping(value = "/product/{id}")
+    @GetMapping(value = "/{id}")
     public ResponseEntity<ProductDto> getProductForId(@PathVariable Integer id) {
         ProductDto dto = service.getId(id);
         return ResponseEntity.ok().body(dto);
     }
 
 
-    @DeleteMapping(value = "delete/{id}")
+    @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> deleteProduct(@PathVariable Integer id) {
         service.delete(id);
         return ResponseEntity.noContent().build();

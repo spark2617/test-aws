@@ -12,7 +12,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping(value = "/cities")
+@RequestMapping(value = "/zone")
 public class ZoneControllers {
 
     @Autowired
