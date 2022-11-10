@@ -16,7 +16,8 @@ public class ImageDto implements Serializable {
     private String title;
     private String url_img;
 
-    private ProductDto product_id;
+//    private ProductDto product_id;
+    private int product_id
 
     public ImageDto(){}
 
@@ -31,7 +32,7 @@ public class ImageDto implements Serializable {
         this.title=model.getTitle();
         this.url_img=model.getUrl_img();
 
-
+        this.product_id=model.getProduct_id().getProduct_id();
 
 
     }
@@ -64,11 +65,20 @@ public class ImageDto implements Serializable {
 
 
     //manyToOne
-    public ProductDto getProduct_id() {
+//    public ProductDto getProduct_id() {
+//        return product_id;
+//    }
+//
+//    public void setProduct_id(ProductDto product_id) {
+//        this.product_id = product_id;
+//    }
+
+
+    public int getProduct_id() {
         return product_id;
     }
 
-    public void setProduct_id(ProductDto product_id) {
+    public void setProduct_id(int product_id) {
         this.product_id = product_id;
     }
 }

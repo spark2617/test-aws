@@ -13,6 +13,7 @@ public class Zone implements Serializable {
     @Id//chave primária
     @GeneratedValue(strategy = GenerationType.IDENTITY)//chave estrangeira
     private Integer zone_id;
+
     private double latitude;
     private double longitude;
 

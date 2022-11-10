@@ -70,8 +70,8 @@ public class CategoryDto implements Serializable {
         this.url_image = url_image;
     }
 
-//oneToMany
 
+//oneToMany
 
     public Set<ProductDto> getLsProducts() {
         return Products;
