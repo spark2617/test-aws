@@ -15,7 +15,7 @@ public class ProductDto implements Serializable {
     private String product_name;
     private String product_description;
 
-    private Set<FeatureDto> featureDtoList =new HashSet<>();
+    private Set<FeatureDto> features =new HashSet<>();
 
 //    private CategoryDto categorys;
         private String category;
@@ -55,7 +55,7 @@ public class ProductDto implements Serializable {
 
 
         //ManyToMany
-        model.getFeatureList().forEach(end->this.featureDtoList.add(new FeatureDto(end)));
+        model.getFeatureList().forEach(end->this.features.add(new FeatureDto(end)));
 
 
     }
@@ -87,14 +87,14 @@ public class ProductDto implements Serializable {
 
 //manyToMany
 
-
-    public Set<FeatureDto> getFeatureDtoList() {
-        return featureDtoList;
+    public Set<FeatureDto> getFeatures() {
+        return features;
     }
 
-    public void setFeatureDtoList(Set<FeatureDto> featureDtoSet) {
-        this.featureDtoList = featureDtoSet;
+    public void setFeatures(Set<FeatureDto> features) {
+        this.features = features;
     }
+
 
     //ManyToOne
 
