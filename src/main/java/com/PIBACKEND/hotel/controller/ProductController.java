@@ -31,11 +31,11 @@ public class ProductController {
         return ResponseEntity.ok().body(dto);
     }
 
-//    @GetMapping(value = "/product/{name}")
-//    public ResponseEntity<List<ProductDto>> getProductToCategoryName(@PathVariable String name) {
-//        List<ProductDto> list = service.getNameCategory(name);
-//        return ResponseEntity.ok().body(list);
-//    }
+    @GetMapping(value = "/product/{name}")
+    public ResponseEntity<List<ProductDto>> getProductToCategoryName(@PathVariable String name) {
+        List<ProductDto> list = service.getProductCategory(name);
+        return ResponseEntity.ok().body(list);
+    }
 
 
     @DeleteMapping(value = "delete/{id}")
