@@ -35,7 +35,7 @@ public class CategoryDto implements Serializable {
 
 
         //oneToMany
-        category.getLsProduct().forEach(end->this.Products.add(new ProductDto(end)));
+        //category.getLsProduct().forEach(end->this.Products.add(new ProductDto(end)));
     }
 
     public Integer getCategory_id() {
