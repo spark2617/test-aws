@@ -16,7 +16,7 @@ public class CategoryDto implements Serializable {
     private String category_description;
     private String url_image;
 
-    private Set<ProductDto> Products= new HashSet<>();
+    private Set<ProductId> Products= new HashSet<>();
 
     public CategoryDto() {
     }
@@ -36,7 +36,7 @@ public class CategoryDto implements Serializable {
 
 
         //oneToMany
-        category.getLsProduct().forEach(end->this.Products.add(new ProductDto(end.getProduct_id())));
+        category.getLsProduct().forEach(end->this.Products.add(new ProductId(end.getProduct_id())));
     }
 
     public Integer getCategory_id() {
