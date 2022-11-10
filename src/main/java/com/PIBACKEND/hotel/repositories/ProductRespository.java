@@ -16,7 +16,7 @@ public interface ProductRespository extends JpaRepository<Product, Integer> {
 //    List<Product> findByCityCity_name(String name);
     @Query(value = "SELECT * FROM product WHERE category_id = 1;", nativeQuery = true)
     List<Product> findByAllProduct();
-    @Query(value = "SELECT * FROM product INNER JOIN category WHERE category.category_name=:name", nativeQuery = true)
-    List<Product> findByProduct(@Param("name") String name);
+//    @Query(value = "SELECT * FROM product INNER JOIN category WHERE category.category_name=:name", nativeQuery = true)
+//    List<Product> findByProduct(@Param("name") String name);
 
 }
