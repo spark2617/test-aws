@@ -74,11 +74,11 @@ public class CategoryDto implements Serializable {
 
 //oneToMany
 
-    public Set<ProductDto> getLsProducts() {
-        return Products;
-    }
-
-    public void setLsProducts(Set<ProductDto> lsProducts) {
-        this.Products = lsProducts;
-    }
+//    public Set<ProductDto> getLsProducts() {
+//        return Products;
+//    }
+//
+//    public void setLsProducts(Set<ProductDto> lsProducts) {
+//        this.Products = lsProducts;
+//    }
 }
