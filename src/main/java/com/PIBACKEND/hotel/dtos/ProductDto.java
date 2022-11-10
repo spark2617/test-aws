@@ -53,7 +53,7 @@ public class ProductDto implements Serializable {
 
 
         //ManyToMany
-        model.getFeatureList().forEach(end->this.featureDtoList.add(new FeatureDto(end)));
+        //model.getFeatureList().forEach(end->this.featureDtoList.add(new FeatureDto(end)));
 
 
     }
