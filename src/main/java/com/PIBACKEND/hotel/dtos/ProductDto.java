@@ -17,8 +17,8 @@ public class ProductDto implements Serializable {
 
     private Set<FeatureDto> featureDtoList =new HashSet<>();
 
-    private CategoryDto categorys;
-
+//    private CategoryDto categorys;
+        private String category;
     private Set<ImageDto> images=new HashSet<>();
 
     private ZoneDto zoneDto;
@@ -44,7 +44,7 @@ public class ProductDto implements Serializable {
 
 
         //manyToOne
-        //this.categorys=new CategoryDto(model.getCategory_id());
+        this.category=model.getCategory_id().getCategory_name();
 
 
         //OneToMany
@@ -96,14 +96,21 @@ public class ProductDto implements Serializable {
 
     //ManyToOne
 
-    public CategoryDto getCategorys() {
-        return categorys;
+//    public CategoryDto getCategorys() {
+//        return categorys;
+//    }
+//
+//    public void setCategorys(CategoryDto categorys) {
+//        this.categorys = categorys;
+//    }
+
+    public String getCategory() {
+        return category;
     }
 
-    public void setCategorys(CategoryDto categorys) {
-        this.categorys = categorys;
+    public void setCategory(String category) {
+        this.category = category;
     }
-
 
 
     //oneToMany
