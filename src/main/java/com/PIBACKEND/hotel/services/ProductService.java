@@ -33,9 +33,9 @@ public class ProductService {
     }
 
     @Transactional(readOnly = true)
-    public List<ProductDto> getProductCategory() {
+    public List<ProductDto> getProductMetaverse() {
         try {
-            List<Product> list = repository.findByAllProduct();
+            List<Product> list = repository.findByAllProductMetaverse();
             return list.stream().map(ProductDto::new).collect(Collectors.toList());
         }
         catch(EntityNotFoundException e){
