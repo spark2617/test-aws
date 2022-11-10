@@ -21,6 +21,6 @@ public interface ProductRespository extends JpaRepository<Product, Integer> {
             " product.zone_id\n" +
             " FROM product INNER JOIN zone \n" +
             " ON product.zone_id = zone.zone_id\n" +
-            " WHERE zone.metaverse_id = 1;", nativeQuery = true)
+            " WHERE zone.metaverse_id = 1; ", nativeQuery = true)
     List<Product> findByAllProductMetaverse();
 }
