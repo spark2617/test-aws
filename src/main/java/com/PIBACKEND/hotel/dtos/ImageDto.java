@@ -17,7 +17,7 @@ public class ImageDto implements Serializable {
     private String url_img;
 
 //    private ProductDto product_id;
-    private int product_id
+    private int product_id;
 
     public ImageDto(){}
 
