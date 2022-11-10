@@ -4,6 +4,7 @@ import com.PIBACKEND.hotel.model.Category;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 public class CategoryDto implements Serializable {
@@ -15,7 +16,7 @@ public class CategoryDto implements Serializable {
     private String category_description;
     private String url_image;
 
-    private Set<ProductDto> Products;
+    private Set<ProductDto> Products= new HashSet<>();
 
     public CategoryDto() {
     }
@@ -35,7 +36,7 @@ public class CategoryDto implements Serializable {
 
 
         //oneToMany
-        //category.getLsProduct().forEach(end->this.Products.add(new ProductDto(end)));
+        category.getLsProduct().forEach(end->this.Products.add(new ProductDto(end)));
     }
 
     public Integer getCategory_id() {
