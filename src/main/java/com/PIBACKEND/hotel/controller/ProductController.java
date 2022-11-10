@@ -33,7 +33,7 @@ public class ProductController {
 
 //    @GetMapping(value = "/product/{name}")
 //    public ResponseEntity<List<ProductDto>> getProductToCategoryName(@PathVariable String name) {
-//        List<ProductDto> list = service.getProductCategory(name);
+//        List<ProductDto> list = service.getNameCategory(name);
 //        return ResponseEntity.ok().body(list);
 //    }
 
