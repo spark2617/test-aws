@@ -46,7 +46,6 @@ public class Product implements Serializable {
     private Zone zone_id;
 
 
-
     //OneToMany de image
     @OneToMany(mappedBy = "product_id")
     private List<Image> images;

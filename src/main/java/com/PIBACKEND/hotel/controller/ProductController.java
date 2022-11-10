@@ -30,7 +30,7 @@ public class ProductController {
         ProductDto dto = service.getId(id);
         return ResponseEntity.ok().body(dto);
     }
-    
+
 
     @DeleteMapping(value = "delete/{id}")
     public ResponseEntity<Void> deleteProduct(@PathVariable Integer id) {
