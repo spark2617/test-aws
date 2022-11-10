@@ -30,13 +30,7 @@ public class ProductController {
         ProductDto dto = service.getId(id);
         return ResponseEntity.ok().body(dto);
     }
-
-    @GetMapping(value = "/product")
-    public ResponseEntity<List<ProductDto>> getProductToCategoryName(@PathVariable String name) {
-        List<ProductDto> list = service.getProductMetaverse();
-        return ResponseEntity.ok().body(list);
-    }
-
+    
 
     @DeleteMapping(value = "delete/{id}")
     public ResponseEntity<Void> deleteProduct(@PathVariable Integer id) {
