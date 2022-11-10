@@ -26,6 +26,10 @@ public class ProductDto implements Serializable {
 
     public ProductDto(){}
 
+    public ProductDto(Integer num){
+        this.product_id=num;
+    }
+
     public ProductDto(Integer product_id, String name, String description) {
         this.product_id = product_id;
         this.product_name = name;
