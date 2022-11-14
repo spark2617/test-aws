@@ -18,13 +18,7 @@ public class ZoneDto implements Serializable {
 
     //ManyToOne
 //    private MetaverseDto metaverseDto;
-    private String metaverse_name;
-
-
-    //OneToOne
-    private int product_id;
-
-
+    private String metaverse;
 
     public ZoneDto(){}
 
@@ -40,9 +34,7 @@ public class ZoneDto implements Serializable {
         this.latitude=model.getLatitude();
 
         //ManyToOne
-        this.metaverse_name=model.getMetaverse_id().getMetaverse_name();
-
-        //oneToOne
+        this.metaverse=model.getMetaverse_id().getMetaverse_name();
 
 
     }
@@ -72,15 +64,5 @@ public class ZoneDto implements Serializable {
     public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
-
-//OneToOne
-
-//
-//    public List<ProductDto> getProductDto() {
-//        return productDto;
-//    }
-//
-//    public void setProductDto(List<ProductDto> productDto) {
-//        this.productDto = productDto;
-//    }
+    
 }

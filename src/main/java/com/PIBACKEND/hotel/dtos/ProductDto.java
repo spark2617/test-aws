@@ -99,14 +99,6 @@ public class ProductDto implements Serializable {
 
     //ManyToOne
 
-//    public CategoryDto getCategorys() {
-//        return categorys;
-//    }
-//
-//    public void setCategorys(CategoryDto categorys) {
-//        this.categorys = categorys;
-//    }
-
     public String getCategory() {
         return category;
     }
@@ -138,12 +130,4 @@ public class ProductDto implements Serializable {
         this.zone = zone;
     }
 
-
-//    public ZoneDto getZoneDto() {
-//        return zoneDto;
-//    }
-//
-//    public void setZoneDto(ZoneDto zoneDto) {
-//        this.zoneDto = zoneDto;
-//    }
 }
