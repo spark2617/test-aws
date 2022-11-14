@@ -17,20 +17,21 @@ public class ProductDto implements Serializable {
 
     private Set<FeatureDto> features =new HashSet<>();
 
+
 //    private CategoryDto categorys;
         private String category;
     private Set<ImageDto> images=new HashSet<>();
 
-//    private ZoneDto zoneDto;
-    private int zone_id;
+    private ZoneDto zone;
+
 
     public ProductDto(){}
 
-
-    public ProductDto(Integer product_id, String name, String description) {
+    public ProductDto(Integer product_id, String product_name, String product_description, ZoneDto zone) {
         this.product_id = product_id;
-        this.product_name = name;
-        this.product_description = description;
+        this.product_name = product_name;
+        this.product_description = product_description;
+        this.zone = zone;
     }
 
     //contrutor dto
@@ -42,9 +43,8 @@ public class ProductDto implements Serializable {
         this.product_description=model.getProduct_description();
 
         //OneToOne
-        //this.zoneDto=new ZoneDto(model.getZone_id());
-        this.zone_id=model.getZone_id().getZone_id();
-
+        this.zone=new ZoneDto(model.getZone_id());
+        //this.zone_id=model.getZone_id().getZone_id();
 
         //manyToOne
         this.category=model.getCategory_id().getCategory_name();
@@ -130,12 +130,12 @@ public class ProductDto implements Serializable {
 
     //OneToOne
 
-    public int getZone_id() {
-        return zone_id;
+    public ZoneDto getZone() {
+        return zone;
     }
 
-    public void setZone_id(int zone_id) {
-        this.zone_id = zone_id;
+    public void setZone(ZoneDto zone) {
+        this.zone = zone;
     }
 
 

@@ -20,10 +20,15 @@ public class Product implements Serializable {
     //contrutores
     public Product(){}
 
-    public Product(Integer product_id, String product_name, String product_description) {
+    public Product(Integer product_id, String product_name, String product_description, Set<Feature> featureList,
+                   Category category_id, Zone zone_id, List<Image> images) {
         this.product_id = product_id;
         this.product_name = product_name;
         this.product_description = product_description;
+        this.featureList = featureList;
+        this.category_id = category_id;
+        this.zone_id = zone_id;
+        this.images = images;
     }
 
     //manyToMany
