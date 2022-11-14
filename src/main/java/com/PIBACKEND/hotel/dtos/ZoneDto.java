@@ -64,4 +64,11 @@ public class ZoneDto implements Serializable {
         this.longitude = longitude;
     }
 
+    public String getName_metaverse() {
+        return name_metaverse;
+    }
+
+    public void setName_metaverse(String name_metaverse) {
+        this.name_metaverse = name_metaverse;
+    }
 }
