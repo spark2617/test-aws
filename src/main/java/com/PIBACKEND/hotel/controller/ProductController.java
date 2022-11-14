@@ -26,9 +26,9 @@ public class ProductController {
     }
 
     //test
-    @GetMapping(value = "/test")
-    public ResponseEntity<List<ProductDto>> getAll() {
-        List<ProductDto> list = service.getAllCategory();
+    @GetMapping(value = "/test/{name}")
+    public ResponseEntity<List<ProductDto>> getAll(@PathVariable String name) {
+        List<ProductDto> list = service.getAllCategory(name);
         return ResponseEntity.ok().body(list);
     }
 

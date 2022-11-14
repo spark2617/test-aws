@@ -34,9 +34,9 @@ public class ProductService {
 
 
     @Transactional(readOnly = true)
-    public List<ProductDto> getAllCategory() {
+    public List<ProductDto> getAllCategory(String name) {
         try {
-            List<Product> list = repository.findByCategory();
+            List<Product> list = repository.findByCategory(name);
             return list.stream().map(ProductDto::new).collect(Collectors.toList());
         }
         catch(EntityNotFoundException e){
