@@ -16,7 +16,7 @@ public class ImageDto implements Serializable {
     private String title;
     private String url_img;
 
-//    private ProductDto product_id;
+
     private int product_id;
 
     public ImageDto(){}
@@ -65,14 +65,6 @@ public class ImageDto implements Serializable {
 
 
     //manyToOne
-//    public ProductDto getProduct_id() {
-//        return product_id;
-//    }
-//
-//    public void setProduct_id(ProductDto product_id) {
-//        this.product_id = product_id;
-//    }
-
 
     public int getProduct_id() {
         return product_id;

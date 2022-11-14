@@ -12,5 +12,6 @@ import java.util.Optional;
 @Repository
 public interface ProductRespository extends JpaRepository<Product, Integer> {
 
-
+    @Query("select p from Product p where p.category=hotel")
+    List<Product> findByCategory();
 }

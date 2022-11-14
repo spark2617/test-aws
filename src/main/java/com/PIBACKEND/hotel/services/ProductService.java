@@ -33,6 +33,17 @@ public class ProductService {
     }
 
 
+    @Transactional(readOnly = true)
+    public List<ProductDto> getAllCategory() {
+        try {
+            List<Product> list = repository.findByCategory();
+            return list.stream().map(ProductDto::new).collect(Collectors.toList());
+        }
+        catch(EntityNotFoundException e){
+            throw new EntityNotFoundExceptionHotel("Record not found!");
+        }
+    }
+
 
     @Transactional(readOnly = true)
     public ProductDto getId(Integer id) {
