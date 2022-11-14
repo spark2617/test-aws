@@ -33,7 +33,7 @@ public class ProductController {
     }
     @GetMapping(value = "/fetchMetaverse/{name}")
     public ResponseEntity<List<ProductDto>> getAllMetaverse(@PathVariable String name) {
-        List<ProductDto> list = service.getAllCategory(name);
+        List<ProductDto> list = service.getAllMetaverse(name);
         return ResponseEntity.ok().body(list);
     }
 
