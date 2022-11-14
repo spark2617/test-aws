@@ -25,9 +25,14 @@ public class ProductController {
         return ResponseEntity.ok().body(list);
     }
 
-    //test
-    @GetMapping(value = "/test/{name}")
-    public ResponseEntity<List<ProductDto>> getAll(@PathVariable String name) {
+    //metodo especial
+    @GetMapping(value = "/fetchCategory/{name}")
+    public ResponseEntity<List<ProductDto>> getAllCategory(@PathVariable String name) {
+        List<ProductDto> list = service.getAllCategory(name);
+        return ResponseEntity.ok().body(list);
+    }
+    @GetMapping(value = "/fetchMetaverse/{name}")
+    public ResponseEntity<List<ProductDto>> getAllMetaverse(@PathVariable String name) {
         List<ProductDto> list = service.getAllCategory(name);
         return ResponseEntity.ok().body(list);
     }

@@ -13,9 +13,11 @@ import java.util.Optional;
 @Repository
 public interface ProductRespository extends JpaRepository<Product, Integer> {
 
-//    @Query("select p from Product p where category_id.category_name='hotel'")
-    @Query("select p from Product p where zone_id.metaverse_id.metaverse_name=:name")
+    @Query("select p from Product p where category_id.category_name=:name")
     List<Product> findByCategory(@Param("name") String name);
+
+    @Query("select p from Product p where zone_id.metaverse_id.metaverse_name=:name")
+    List<Product> findByMetaverse(@Param("name") String name);
 
 
 }
