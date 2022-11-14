@@ -19,7 +19,8 @@ public class ProductDto implements Serializable {
 
 
 //    private CategoryDto categorys;
-        private String category;
+    private String category;
+
     private Set<ImageDto> images=new HashSet<>();
 
     private ZoneDto zone;
@@ -52,7 +53,6 @@ public class ProductDto implements Serializable {
 
         //OneToMany
         model.getImages().forEach(end->this.images.add(new ImageDto(end)));
-
 
 
         //ManyToMany

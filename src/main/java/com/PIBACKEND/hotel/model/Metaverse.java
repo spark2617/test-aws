@@ -43,8 +43,7 @@ public class Metaverse implements Serializable {
         this.metaverse_name = metaverse_name;
     }
 
-
-    //OneToMany
+//OneToMany
 
     public Set<Zone> getZones() {
         return zones;
