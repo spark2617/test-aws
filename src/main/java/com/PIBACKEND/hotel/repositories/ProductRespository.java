@@ -12,6 +12,6 @@ import java.util.Optional;
 @Repository
 public interface ProductRespository extends JpaRepository<Product, Integer> {
 
-    @Query(value = "SELECT * FROM product INNER JOIN category ON product.category_id = category.category_id WHERE category.category_name = hotel;",nativeQuery = true)
+    @Query("select p from Product p where p.product_name='Hotel estilo Minecraft'")
     List<Product> findByCategory();
 }
