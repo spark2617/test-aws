@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -46,5 +47,14 @@ public class ZoneService {
         return new ZoneDto(entity);
     }
 
+
+    @Transactional(readOnly = true)
+    public ZoneDto getId(Integer id) {
+
+        Optional<Zone> obj = repository.findById(id);
+        Zone entity = obj.orElseThrow(() -> new EntityNotFoundExceptionHotel("Record "+id+" not found!"));
+        return new ZoneDto(entity);
+
+    }
 
 }

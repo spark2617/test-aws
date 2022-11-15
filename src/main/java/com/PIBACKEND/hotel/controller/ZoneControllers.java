@@ -23,6 +23,11 @@ public class ZoneControllers {
         List<ZoneDto> list = service.getAll();
         return ResponseEntity.ok().body(list);
     }
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<ZoneDto> getCategoryForId(@PathVariable Integer id) {
+        ZoneDto dto = service.getId(id);
+        return ResponseEntity.ok().body(dto);
+    }
 
     @PostMapping
     public ResponseEntity<ZoneDto> insertCities(@RequestBody ZoneDto dto) {
