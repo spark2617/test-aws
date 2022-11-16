@@ -1,11 +1,13 @@
 package com.PIBACKEND.hotel.model;
 
+import org.springframework.security.core.GrantedAuthority;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table
-public class Acess implements Serializable {
+public class Acess implements Serializable, GrantedAuthority {
 
     private static final long serialVersionUID = 1L;
 
@@ -37,5 +39,10 @@ public class Acess implements Serializable {
 
     public void setAcess_level(String acess_level) {
         this.acess_level = acess_level;
+    }
+
+    @Override
+    public String getAuthority() {
+        return this.acess_level;
     }
 }
