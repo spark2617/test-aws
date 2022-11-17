@@ -4,6 +4,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import java.io.Serializable;
 import java.util.Collection;
 
@@ -15,9 +16,14 @@ public class Collaborator implements Serializable, UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer collaborator_id;
+    @Column(nullable = false)
     private String collaborator_name;
+    @Column(nullable = false)
     private String collaborator_surname;
+    @Email(message = "email invalid!")
+    @Column(nullable = false, unique = true)
     private String email;
+
     private String collaborator_password;
 
     public Collaborator(){}
@@ -76,7 +82,6 @@ public class Collaborator implements Serializable, UserDetails {
 
 
     //metodos da interface UserDetails
-    
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
