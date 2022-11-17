@@ -7,6 +7,8 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table
@@ -26,6 +28,8 @@ public class Collaborator implements Serializable, UserDetails {
 
     private String collaborator_password;
 
+    private Set<Acess> acess=new HashSet<>();
+
     public Collaborator(){}
 
     public Collaborator(Integer collaborator_id, String collaborator_name,
@@ -38,6 +42,7 @@ public class Collaborator implements Serializable, UserDetails {
     }
 
     //get e set
+
 
 
     public Integer getCollaborator_id() {
@@ -78,6 +83,18 @@ public class Collaborator implements Serializable, UserDetails {
 
     public void setCollaborator_password(String collaborator_password) {
         this.collaborator_password = collaborator_password;
+    }
+
+
+    //manyToMany
+
+
+    public Set<Acess> getAcess() {
+        return acess;
+    }
+
+    public void setAcess(Set<Acess> acess) {
+        this.acess = acess;
     }
 
 

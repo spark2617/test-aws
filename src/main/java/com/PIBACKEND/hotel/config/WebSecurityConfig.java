@@ -34,16 +34,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        // Configuração para o H2
-        if (Arrays.asList(env.getActiveProfiles()).contains("test")) {
-            http.headers().frameOptions().disable();
-        }
-        // Desabilitado o cors
-        http.cors().and().csrf().disable();
-        // Liberando o policiamento da sessão
-        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-        // Autorizando qualquer requisição com permissão total
-        http.authorizeRequests().anyRequest().permitAll();
+
+
+
+
+//        // Configuração para o H2
+//        if (Arrays.asList(env.getActiveProfiles()).contains("test")) {
+//            http.headers().frameOptions().disable();
+//        }
+//        // Desabilitado o cors
+//        http.cors().and().csrf().disable();
+//        // Liberando o policiamento da sessão
+//        http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+//        // Autorizando qualquer requisição com permissão total
+//        http.authorizeRequests().anyRequest().permitAll();
     }
 
     @Bean
