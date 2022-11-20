@@ -1,6 +1,7 @@
 package com.PIBACKEND.hotel.model;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
@@ -9,6 +10,7 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Entity
 @Table
@@ -28,7 +30,8 @@ public class Collaborator implements Serializable, UserDetails {
 
     private String collaborator_password;
 
-    private Set<Acess> acess=new HashSet<>();
+    @ManyToOne
+    private Acess acess_id;
 
     public Collaborator(){}
 
@@ -40,6 +43,8 @@ public class Collaborator implements Serializable, UserDetails {
         this.email = email;
         this.collaborator_password = collaborator_password;
     }
+
+
 
     //get e set
 
@@ -88,13 +93,12 @@ public class Collaborator implements Serializable, UserDetails {
 
     //manyToMany
 
-
-    public Set<Acess> getAcess() {
-        return acess;
+    public Acess getAcess() {
+        return acess_id;
     }
 
-    public void setAcess(Set<Acess> acess) {
-        this.acess = acess;
+    public void setAcess(Acess acess) {
+        this.acess_id = acess;
     }
 
 
@@ -102,7 +106,10 @@ public class Collaborator implements Serializable, UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        Set<Acess> acessSet=new HashSet<>();
+        acessSet.add(this.acess_id);
+        return acessSet.stream().map(acess -> new SimpleGrantedAuthority(acess.getAcess_level()))
+                .collect(Collectors.toList());
     }
 
     @Override

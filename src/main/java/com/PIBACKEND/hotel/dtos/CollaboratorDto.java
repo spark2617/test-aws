@@ -1,5 +1,6 @@
 package com.PIBACKEND.hotel.dtos;
 
+import com.PIBACKEND.hotel.model.Acess;
 import com.PIBACKEND.hotel.model.Collaborator;
 
 import java.io.Serial;
@@ -14,6 +15,9 @@ public class CollaboratorDto implements Serializable {
     private String collaborator_name;
     private String collaborator_surname;
     private String email;
+
+    //ManyToOne
+    private AcessDto acess_id;
 
     public CollaboratorDto(){}
 
@@ -30,6 +34,7 @@ public class CollaboratorDto implements Serializable {
         this.collaborator_surname=model.getCollaborator_surname();
         this.email=model.getEmail();
 
+        this.acess_id=new AcessDto(model.getAcess());
     }
 
     //get e set
@@ -58,7 +63,6 @@ public class CollaboratorDto implements Serializable {
     public void setCollaborator_surname(String collaborator_surname) {
         this.collaborator_surname = collaborator_surname;
     }
-
     public String getEmail() {
         return email;
     }
@@ -66,4 +70,16 @@ public class CollaboratorDto implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
+
+
+
+    //relacionamento ManYToOne
+    public AcessDto getAcess_id() {
+        return acess_id;
+    }
+
+    public void setAcess_id(AcessDto acess_id) {
+        this.acess_id = acess_id;
+    }
+
 }
