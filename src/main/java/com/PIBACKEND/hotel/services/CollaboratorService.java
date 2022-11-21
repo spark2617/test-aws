@@ -1,9 +1,9 @@
 package com.PIBACKEND.hotel.services;
 
+import com.PIBACKEND.hotel.dtos.CategoryDto;
 import com.PIBACKEND.hotel.dtos.CollaboratorDto;
-import com.PIBACKEND.hotel.dtos.CollaboratorInsertDto;
-import com.PIBACKEND.hotel.dtos.CollaboratorUpdateDto;
 import com.PIBACKEND.hotel.model.Acess;
+import com.PIBACKEND.hotel.model.Category;
 import com.PIBACKEND.hotel.model.Collaborator;
 import com.PIBACKEND.hotel.repositories.AcessRepository;
 import com.PIBACKEND.hotel.repositories.CollaboratorRepository;
@@ -14,90 +14,77 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
-public class CollaboratorService implements UserDetailsService {
+@Service
+public class CollaboratorService{
 
     @Autowired
-    private CollaboratorRepository repository;
+    private CollaboratorRepository userRepository;
 
     @Autowired
     private AcessRepository roleRepository;
 
+//    @Autowired
+//    private ReservRepository bookingRepository;
+
     @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
+    private PasswordEncoder encoder;
 
     @Transactional(readOnly = true)
-    public List<CollaboratorDto> findAll() {
-        List<Collaborator> list = repository.findAll();
-        return list.stream().map(x -> new CollaboratorDto(x)).collect(Collectors.toList());
+    public CollaboratorDto getId(Integer id) {
+
+        Optional<Collaborator> obj = userRepository.findById(id);
+        Collaborator entity = obj.orElseThrow(() -> new EntityNotFoundExceptionHotel("Record "+id+" not found!"));
+        return new CollaboratorDto(entity);
+
+    }
+    @Transactional
+    public CollaboratorDto createUser(CollaboratorDto dto) {
+        Collaborator entity = new Collaborator();
+        dto.setCollaborator_password(encoder.encode(dto.getCollaborator_password()));
+        copyToEntity(dto, entity);
+        entity = userRepository.save(entity);
+        return new CollaboratorDto(entity);
     }
 
     @Transactional(readOnly = true)
-    public CollaboratorDto findById(Integer id) {
-        Optional<Collaborator> object = repository.findById(id);
-        Collaborator entity = object.orElseThrow(() ->
-                new EntityNotFoundExceptionHotel("Este ID não existe em nosso sistema."));
-        return new CollaboratorDto(entity);
+    public List<CollaboratorDto> getAll() {
+        List<CollaboratorDto> listDto = new ArrayList<>();
+        List<Collaborator> list = userRepository.findAll();
+        for(Collaborator user : list) {
+            CollaboratorDto dto = new CollaboratorDto(user);
+            listDto.add(dto);
+        }
+        return listDto;
+    }
+    public Collaborator fetchEmail(String email) {
+        return userRepository.findByEmail(email);
     }
 
     public void delete(Integer id) {
-        try {
-            repository.deleteById(id);
-        }
-        catch (EmptyResultDataAccessException e) {
-            throw new EntityNotFoundExceptionHotel("Id não encontrado: " + id);
-        }
-        catch (DataIntegrityViolationException e) {
-            throw new EntityNotFoundExceptionHotel("Violação de integridade no banco de dados.");
+        try {userRepository.deleteById(id);}
+        catch (EmptyResultDataAccessException e){
+            throw new EntityNotFoundExceptionHotel("Record "+id+"not found!");
         }
     }
 
-    @Transactional
-    public CollaboratorDto insert(CollaboratorInsertDto dto) {
-        Collaborator entity = new Collaborator();
-        copyDtoToEntity(dto, entity);
-//        entity.setPassword(passwordEncoder.encode(dto.getPassword())); //dh2022
-        entity.setCollaborator_password(passwordEncoder.encode(dto.getCollaborator_password()));
-        entity = repository.save(entity);
-        return new CollaboratorDto(entity);
-    }
 
-    @Transactional
-    public CollaboratorDto update(Integer id, CollaboratorUpdateDto dto) {
-        try {
-            Collaborator entity = repository.getReferenceById(id);
-            copyDtoToEntity(dto, entity);
-            entity = repository.save(entity);
-            return new CollaboratorDto(entity);
-        }
-        catch (EntityNotFoundException e) {
-            throw new EntityNotFoundExceptionHotel("Id não encontrado: " + id);
-        }
-    }
+    public void copyToEntity(CollaboratorDto dto, Collaborator entiity){
+        entiity.setCollaborator_name(dto.getCollaborator_name());
+        entiity.setCollaborator_surname(dto.getCollaborator_surname());
+        entiity.setEmail(dto.getEmail());
+        Optional<Acess> obj=roleRepository.findById(dto.getAcess_id().getAcess_id());
+        Acess acess=obj.orElseThrow(()-> new EntityNotFoundExceptionHotel("entity invalid!"));
+        entiity.setAcess_id(acess);
 
-    private void copyDtoToEntity(CollaboratorDto dto, Collaborator entity) {
-
-        entity.setCollaborator_name(dto.getCollaborator_name());
-        entity.setCollaborator_surname(dto.getCollaborator_surname());
-        entity.setEmail(dto.getEmail());
-        Acess acess = roleRepository.getReferenceById(dto.getCollaborator_id());
-        entity.setAcess(acess);
-
-    }
-
-    @Override
-    public UserDetails loadUserByUsername(String username) throws EntityNotFoundExceptionHotel {
-        Collaborator user = repository.findByEmail(username);
-        if (user == null) {
-            throw new EntityNotFoundExceptionHotel("Você digitou um e-mail inválido!");
-        }
-        return user;
     }
 
 }

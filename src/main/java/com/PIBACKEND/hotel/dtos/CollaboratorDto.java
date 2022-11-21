@@ -2,10 +2,15 @@ package com.PIBACKEND.hotel.dtos;
 
 import com.PIBACKEND.hotel.model.Acess;
 import com.PIBACKEND.hotel.model.Collaborator;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.io.Serial;
 import java.io.Serializable;
-
+@Getter
+@Setter
+@NoArgsConstructor
 public class CollaboratorDto implements Serializable {
 
     @Serial
@@ -15,17 +20,20 @@ public class CollaboratorDto implements Serializable {
     private String collaborator_name;
     private String collaborator_surname;
     private String email;
+    private String collaborator_password;
 
     //ManyToOne
     private AcessDto acess_id;
 
-    public CollaboratorDto(){}
 
-    public CollaboratorDto(Integer collaborator_id, String collaborator_name, String collaborator_surname, String email) {
+
+    public CollaboratorDto(Integer collaborator_id, String collaborator_name,
+                           String collaborator_surname, String email,String collaborator_password) {
         this.collaborator_id = collaborator_id;
         this.collaborator_name = collaborator_name;
         this.collaborator_surname = collaborator_surname;
         this.email = email;
+        this.collaborator_password=collaborator_password;
     }
 
     public CollaboratorDto(Collaborator model){
@@ -33,53 +41,15 @@ public class CollaboratorDto implements Serializable {
         this.collaborator_name=model.getCollaborator_name();
         this.collaborator_surname=model.getCollaborator_surname();
         this.email=model.getEmail();
+        this.collaborator_password=model.getCollaborator_password();
 
-        this.acess_id=new AcessDto(model.getAcess());
+//        this.acess_id=new AcessDto(model.getAcess_id());
     }
 
-    //get e set
-
-
-    public Integer getCollaborator_id() {
-        return collaborator_id;
+    public CollaboratorDto(Collaborator user,Acess acess){
+        this(user);
+        this.acess_id=new AcessDto(acess);
     }
 
-    public void setCollaborator_id(Integer collaborator_id) {
-        this.collaborator_id = collaborator_id;
-    }
-
-    public String getCollaborator_name() {
-        return collaborator_name;
-    }
-
-    public void setCollaborator_name(String collaborator_name) {
-        this.collaborator_name = collaborator_name;
-    }
-
-    public String getCollaborator_surname() {
-        return collaborator_surname;
-    }
-
-    public void setCollaborator_surname(String collaborator_surname) {
-        this.collaborator_surname = collaborator_surname;
-    }
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-
-
-    //relacionamento ManYToOne
-    public AcessDto getAcess_id() {
-        return acess_id;
-    }
-
-    public void setAcess_id(AcessDto acess_id) {
-        this.acess_id = acess_id;
-    }
 
 }
