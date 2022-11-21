@@ -10,7 +10,7 @@ import java.util.Set;
 
 @Entity
 @Table
-public class Acess implements Serializable{
+public class Acess implements Serializable,GrantedAuthority{
 
     private static final long serialVersionUID = 1L;
 
@@ -58,5 +58,8 @@ public class Acess implements Serializable{
     }
 
 
-
+    @Override
+    public String getAuthority() {
+        return this.acess_level;
+    }
 }

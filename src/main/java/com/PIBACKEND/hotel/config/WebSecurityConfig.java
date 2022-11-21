@@ -30,7 +30,12 @@ public class WebSecurityConfig<MyUserDetailsService, JwtRequestFilter extends Fi
     protected void configure(HttpSecurity http) throws Exception {
         http.headers().frameOptions().disable();
         http.cors().and().csrf().disable().authorizeRequests()
-
+                .antMatchers(HttpMethod.GET,"/image/**").permitAll()
+                .antMatchers(HttpMethod.GET,"/product/**").permitAll()
+                .antMatchers(HttpMethod.GET,"/categories/**").permitAll()
+                .antMatchers(HttpMethod.GET,"/zone/**").permitAll()
+                .antMatchers(HttpMethod.GET,"/metaverse/**").permitAll()
+                .antMatchers(HttpMethod.GET,"/features/**").permitAll()
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
     }

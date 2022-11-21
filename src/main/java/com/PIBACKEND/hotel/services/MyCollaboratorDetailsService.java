@@ -13,6 +13,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -33,14 +34,13 @@ public class MyCollaboratorDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         Collaborator userAccount = repository.findByEmail(email);
 
-        Set<GrantedAuthority> grantList = new HashSet<GrantedAuthority>();
+        Collection<? extends GrantedAuthority> grantList = userAccount.getAuthorities();
 
         if (userAccount != null) {
             Acess role = userAccount.getAcess_id();
             if (role != null) {
-                GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(role.getAcess_level());
-                grantList.add(grantedAuthority);
-                return (UserDetails) new Collaborator(email,userAccount.getCollaborator_password(),grantList);
+
+                return userAccount;
             }
         }
 
