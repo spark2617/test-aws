@@ -1,53 +1,54 @@
 package com.PIBACKEND.hotel.model;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.OffsetDateTime;
+import java.util.Date;
 
 @Entity
 @Table
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Reservation implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id//chave primária
     @GeneratedValue(strategy = GenerationType.IDENTITY)//chave estrangeira
     private Integer reservation_id;
-    private LocalDate checkin_date;
-    private LocalDate checkout_date;
+    private Date checkin_date=new Date();
+    private Date checkout_date=new Date();
+    private Date checkin_hour=new Date();
+    private Date checkout_hour=new Date();
 
-    public Reservation(){}
 
-    public Reservation(Integer reservation_id, LocalDate checkin_date, LocalDate checkout_date) {
-        this.reservation_id = reservation_id;
-        this.checkin_date = checkin_date;
-        this.checkout_date = checkout_date;
+    @ManyToOne
+    private Product product_id;
+
+
+    // Timestamps Automáticos
+    @Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private OffsetDateTime criado;
+    @Column(columnDefinition = "TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
+    private OffsetDateTime atualizado;
+
+    @PrePersist
+    public void antesDeSalvar() {
+        criado = OffsetDateTime.now();
     }
 
-    //get e set
-
-
-    public Integer getReservation_id() {
-        return reservation_id;
+    @PreUpdate
+    public void antesDeAtualizar() {
+        atualizado = OffsetDateTime.now();
     }
 
-    public void setReservation_id(Integer reservation_id) {
-        this.reservation_id = reservation_id;
-    }
 
-    public LocalDate getCheckin_date() {
-        return checkin_date;
-    }
-
-    public void setCheckin_date(LocalDate checkin_date) {
-        this.checkin_date = checkin_date;
-    }
-
-    public LocalDate getCheckout_date() {
-        return checkout_date;
-    }
-
-    public void setCheckout_date(LocalDate checkout_date) {
-        this.checkout_date = checkout_date;
-    }
 }

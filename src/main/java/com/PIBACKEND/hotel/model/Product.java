@@ -51,10 +51,12 @@ public class Product implements Serializable {
     private Zone zone_id;
 
 
-    //OneToMany de image
+    //OneToMany
     @OneToMany(mappedBy = "product_id")
     private List<Image> images;
 
+    @OneToMany(mappedBy = "product_id")
+    private List<Reservation> reservations;
 
 
     //get e set
@@ -115,6 +117,14 @@ public class Product implements Serializable {
 
     public void setZone_id(Zone zone_id) {
         this.zone_id = zone_id;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
     }
 
 

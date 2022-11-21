@@ -38,7 +38,6 @@ public class JwtController {
                     authenticationRequest.getCollaborator_password()));
 
         } catch (BadCredentialsException e) {
-            System.out.println("entrou no catch!");
             e.printStackTrace();
             throw new Exception("Incorrect", e);
         }

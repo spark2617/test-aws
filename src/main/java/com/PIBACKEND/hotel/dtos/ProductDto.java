@@ -1,10 +1,12 @@
 package com.PIBACKEND.hotel.dtos;
 
 import com.PIBACKEND.hotel.model.Product;
+import com.PIBACKEND.hotel.model.Reservation;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class ProductDto implements Serializable {
@@ -24,7 +26,7 @@ public class ProductDto implements Serializable {
 
     private ZoneDto zone;
 
-
+    private Set<ReservationDto> reservations =new HashSet<>();
     public ProductDto(){}
 
     public ProductDto(Integer product_id, String product_name, String product_description, ZoneDto zone) {
@@ -56,6 +58,8 @@ public class ProductDto implements Serializable {
         //ManyToMany
         model.getFeatureList().forEach(end->this.features.add(new FeatureDto(end)));
 
+        //OneToMany
+        model.getReservations().forEach(end->this.reservations.add(new ReservationDto(end)));
 
     }
 
