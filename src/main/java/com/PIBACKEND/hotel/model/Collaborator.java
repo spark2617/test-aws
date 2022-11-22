@@ -39,8 +39,8 @@ public class Collaborator implements Serializable, UserDetails {
     @JsonIgnoreProperties
     private Acess acess_id;
 
-//    @OneToMany
-//    private Set<Reservation> reservations=new HashSet<>();
+    @OneToMany(mappedBy = "collaborator_id")
+    private Set<Reservation> reservations=new HashSet<>();
 
     @Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private OffsetDateTime criado;
@@ -61,8 +61,6 @@ public class Collaborator implements Serializable, UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<Acess> acess=Collections.singletonList(this.acess_id);
-
-
         return acess;
     }
 

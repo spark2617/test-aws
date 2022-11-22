@@ -3,48 +3,37 @@ package com.PIBACKEND.hotel.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.http.SessionCreationPolicy;
-
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-
-
-import javax.servlet.Filter;
-import java.util.Arrays;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
-public class WebSecurityConfig<MyUserDetailsService, JwtRequestFilter extends Filter> extends WebSecurityConfigurerAdapter {
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    MyUserDetailsService myUserDetailsService;
+    private BCryptPasswordEncoder passwordEncoder;
 
     @Autowired
-    JwtRequestFilter jwtRequestFilter;
+    private UserDetailsService userDetailsService;
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.headers().frameOptions().disable();
-        http.cors().and().csrf().disable().authorizeRequests()
-                .antMatchers(HttpMethod.GET,"/image/**").permitAll()
-                .antMatchers(HttpMethod.GET,"/product/**").permitAll()
-                .antMatchers(HttpMethod.GET,"/categories/**").permitAll()
-                .antMatchers(HttpMethod.GET,"/zone/**").permitAll()
-                .antMatchers(HttpMethod.GET,"/metaverse/**").permitAll()
-                .antMatchers(HttpMethod.GET,"/features/**").permitAll()
-                .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-        http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+    @Override // Configurar a criptografia e o UserDetailsService
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
     }
 
-    @Override
+    @Override // Liberar o uso do actuador para o OAUTH 2
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/actuator/**");
+    }
+
+    @Override // CONFIG DO SPRING SECURITY
     @Bean
-    public AuthenticationManager authenticationManagerBean() throws Exception {
-        return super.authenticationManagerBean();
+    protected AuthenticationManager authenticationManager() throws Exception {
+        return super.authenticationManager();
     }
-
-
 }

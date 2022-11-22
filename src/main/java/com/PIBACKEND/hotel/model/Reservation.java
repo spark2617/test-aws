@@ -8,7 +8,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Date;
 
@@ -32,6 +31,9 @@ public class Reservation implements Serializable {
 
     @ManyToOne
     private Product product_id;
+
+    @ManyToOne
+    private Collaborator collaborator_id;
 
 
     // Timestamps Automáticos

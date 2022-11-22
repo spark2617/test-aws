@@ -23,14 +23,18 @@ public class ReservationDto {
     private Date checkout_hour=new Date();
     private ProductDto product_id;
 
+    private CollaboratorDto collaborator_id;
 
-    public ReservationDto(Integer reservation_id, Date checkin_date,
-                          Date checkout_date, Date checkin_hour, Date checkout_hour) {
+
+    public ReservationDto(Integer reservation_id, Date checkin_date, Date checkout_date, Date checkin_hour,
+                          Date checkout_hour, ProductDto product_id, CollaboratorDto collaborator_id) {
         this.reservation_id = reservation_id;
         this.checkin_date = checkin_date;
         this.checkout_date = checkout_date;
         this.checkin_hour = checkin_hour;
         this.checkout_hour = checkout_hour;
+        this.product_id = product_id;
+        this.collaborator_id = collaborator_id;
     }
 
     public ReservationDto(Reservation model){
@@ -41,5 +45,8 @@ public class ReservationDto {
         this.checkout_date=model.getCheckout_date();
 
         this.product_id=new ProductDto(model.getProduct_id());
+
+        this.collaborator_id=new CollaboratorDto(model.getCollaborator_id());
+
     }
 }
