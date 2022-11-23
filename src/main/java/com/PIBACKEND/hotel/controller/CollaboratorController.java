@@ -1,8 +1,10 @@
 package com.PIBACKEND.hotel.controller;
 
 import com.PIBACKEND.hotel.dtos.CollaboratorDto;
+import com.PIBACKEND.hotel.model.Collaborator;
 import com.PIBACKEND.hotel.services.CollaboratorService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -35,5 +37,10 @@ public class CollaboratorController {
         return ResponseEntity.noContent().build();
     }
 
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity<CollaboratorDto> createUser(@RequestBody CollaboratorDto dto) {
+        return ResponseEntity.status(201).body(service.createUser(dto));
+    }
 
 }

@@ -2,11 +2,14 @@ package com.PIBACKEND.hotel.services;
 
 import com.PIBACKEND.hotel.dtos.CategoryDto;
 import com.PIBACKEND.hotel.dtos.CollaboratorDto;
+import com.PIBACKEND.hotel.dtos.ReservationDto;
 import com.PIBACKEND.hotel.model.Acess;
 import com.PIBACKEND.hotel.model.Category;
 import com.PIBACKEND.hotel.model.Collaborator;
+import com.PIBACKEND.hotel.model.Reservation;
 import com.PIBACKEND.hotel.repositories.AcessRepository;
 import com.PIBACKEND.hotel.repositories.CollaboratorRepository;
+import com.PIBACKEND.hotel.repositories.ReservationRepository;
 import com.PIBACKEND.hotel.services.exceptions.EntityNotFoundExceptionHotel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -32,8 +35,8 @@ public class CollaboratorService{
     @Autowired
     private AcessRepository roleRepository;
 
-//    @Autowired
-//    private ReservRepository bookingRepository;
+    @Autowired
+    private ReservationRepository repository;
 
     @Autowired
     private PasswordEncoder encoder;
@@ -81,9 +84,17 @@ public class CollaboratorService{
         entiity.setCollaborator_name(dto.getCollaborator_name());
         entiity.setCollaborator_surname(dto.getCollaborator_surname());
         entiity.setEmail(dto.getEmail());
+
+
         Optional<Acess> obj=roleRepository.findById(dto.getAcess_id().getAcess_id());
         Acess acess=obj.orElseThrow(()-> new EntityNotFoundExceptionHotel("entity invalid!"));
         entiity.setAcess_id(acess);
+
+        entiity.getReservations().clear();
+        for (ReservationDto reservationDto : dto.getReservation()) {
+            Reservation reservation = repository.getReferenceById(reservationDto.getReservation_id());
+            entiity.getReservations().add(reservation);
+        }
 
     }
 

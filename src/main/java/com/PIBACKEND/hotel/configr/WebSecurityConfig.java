@@ -36,7 +36,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/zone/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/metaverse/**").permitAll()
                 .antMatchers(HttpMethod.GET,"/categories/**").permitAll()
-                .antMatchers("/authenticate/**").permitAll() // nao pode exigir jwt
+                .antMatchers("/authenticate/**").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
