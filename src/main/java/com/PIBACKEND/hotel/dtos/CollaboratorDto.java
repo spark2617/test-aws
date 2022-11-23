@@ -50,14 +50,12 @@ public class CollaboratorDto implements Serializable {
         this.email=model.getEmail();
         this.collaborator_password=model.getCollaborator_password();
 
-//        this.acess_id=new AcessDto(model.getAcess_id());
+
+        this.acess_id=new AcessDto(model.getAcess_id());
         model.getReservations().forEach(end->this.reservation.add(new ReservationDto(end)));
     }
 
-    public CollaboratorDto(Collaborator user,Acess acess){
-        this(user);
-        this.acess_id=new AcessDto(acess);
-    }
+
 
 
 }
