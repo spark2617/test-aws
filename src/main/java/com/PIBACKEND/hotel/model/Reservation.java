@@ -23,10 +23,10 @@ public class Reservation implements Serializable {
     @Id//chave primária
     @GeneratedValue(strategy = GenerationType.IDENTITY)//chave estrangeira
     private Integer reservation_id;
-    private Date checkin_date=new Date();
-    private Date checkout_date=new Date();
-    private Date checkin_hour=new Date();
-    private Date checkout_hour=new Date();
+    private String checkin_date;
+    private String checkout_date;
+    private String checkin_hour;
+    private String checkout_hour;
 
 
     @ManyToOne
@@ -36,21 +36,6 @@ public class Reservation implements Serializable {
     private Collaborator collaborator_id;
 
 
-    // Timestamps Automáticos
-    @Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private OffsetDateTime criado;
-    @Column(columnDefinition = "TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
-    private OffsetDateTime atualizado;
-
-    @PrePersist
-    public void antesDeSalvar() {
-        criado = OffsetDateTime.now();
-    }
-
-    @PreUpdate
-    public void antesDeAtualizar() {
-        atualizado = OffsetDateTime.now();
-    }
 
 
 }

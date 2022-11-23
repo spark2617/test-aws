@@ -1,5 +1,8 @@
 package com.PIBACKEND.hotel.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -8,6 +11,8 @@ import java.util.Set;
 
 @Entity
 @Table
+@Getter
+@Setter
 public class Product implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -58,84 +63,4 @@ public class Product implements Serializable {
     @OneToMany(mappedBy = "product_id")
     private List<Reservation> reservations;
 
-
-    //get e set
-    public Integer getProduct_id() {
-        return product_id;
-    }
-
-    public void setProduct_id(Integer product_id) {
-        this.product_id = product_id;
-    }
-
-    public String getProduct_name() {
-        return product_name;
-    }
-
-    public void setProduct_name(String product_name) {
-        this.product_name = product_name;
-    }
-
-    public String getProduct_description() {
-        return product_description;
-    }
-
-    public void setProduct_description(String product_description) {
-        this.product_description = product_description;
-    }
-
-
-
-    //manyToMany
-    public Set<Feature> getFeatureList() {
-        return featureList;
-    }
-
-    public void setFeaturesSet(Set<Feature> featureSet) {
-        this.featureList = featureSet;
-    }
-
-
-
-
-    //manyToOne
-    // produto-categoria
-    public Category getCategory_id() {
-        return category_id;
-    }
-
-    public void setCategory_id(Category category_id) {
-        this.category_id = category_id;
-    }
-
-
-
-    //OneToOne
-    public Zone getZone_id() {
-        return zone_id;
-    }
-
-    public void setZone_id(Zone zone_id) {
-        this.zone_id = zone_id;
-    }
-
-    public List<Reservation> getReservations() {
-        return reservations;
-    }
-
-    public void setReservations(List<Reservation> reservations) {
-        this.reservations = reservations;
-    }
-
-
-
-    //oneToMany
-    //product-Image
-    public List<Image> getImages() {
-        return images;
-    }
-
-    public void setImages(List<Image> images) {
-        this.images = images;
-    }
 }

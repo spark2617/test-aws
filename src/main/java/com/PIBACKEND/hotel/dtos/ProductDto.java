@@ -2,13 +2,16 @@ package com.PIBACKEND.hotel.dtos;
 
 import com.PIBACKEND.hotel.model.Product;
 import com.PIBACKEND.hotel.model.Reservation;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
+@Getter
+@Setter
 public class ProductDto implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
@@ -26,7 +29,7 @@ public class ProductDto implements Serializable {
 
     private ZoneDto zone;
 
-    private Set<ReservationDto> reservations =new HashSet<>();
+    //private Set<ReservationDto> reservations =new HashSet<>();
     public ProductDto(){}
 
     public ProductDto(Integer product_id, String product_name, String product_description, ZoneDto zone) {
@@ -59,79 +62,9 @@ public class ProductDto implements Serializable {
         model.getFeatureList().forEach(end->this.features.add(new FeatureDto(end)));
 
         //OneToMany
-        model.getReservations().forEach(end->this.reservations.add(new ReservationDto(end)));
+       // model.getReservations().forEach(end->this.reservations.add(new ReservationDto(end)));
 
     }
 
-    //get e set
-    public Integer getProduct_id() {
-        return product_id;
-    }
-
-    public void setProduct_id(Integer product_id) {
-        this.product_id = product_id;
-    }
-
-    public String getProduct_name() {
-        return product_name;
-    }
-
-    public void setProduct_name(String product_name) {
-        this.product_name = product_name;
-    }
-
-    public String getProduct_description() {
-        return product_description;
-    }
-
-    public void setProduct_description(String product_description) {
-        this.product_description = product_description;
-    }
-
-
-
-    //manyToMany
-
-    public Set<FeatureDto> getFeatures() {
-        return features;
-    }
-
-    public void setFeatures(Set<FeatureDto> features) {
-        this.features = features;
-    }
-
-
-    //ManyToOne
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-
-    //oneToMany
-
-
-    public Set<ImageDto> getImages() {
-        return images;
-    }
-
-    public void setImages(Set<ImageDto> images) {
-        this.images = images;
-    }
-
-
-    //OneToOne
-
-    public ZoneDto getZone() {
-        return zone;
-    }
-
-    public void setZone(ZoneDto zone) {
-        this.zone = zone;
-    }
 
 }

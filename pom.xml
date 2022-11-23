@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.dh</groupId>
-	<artifactId>clinica</artifactId>
+	<artifactId>meta</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>clinica</name>
-	<description>Projeto guiado da disciplina de backend</description>
+	<name>meta</name>
+	<description>Projeto de backend</description>
 	<properties>
 		<java.version>17</java.version>
 		<spring-cloud.version>Hoxton.SR8</spring-cloud.version>

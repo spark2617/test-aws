@@ -42,21 +42,6 @@ public class Collaborator implements Serializable, UserDetails {
     @OneToMany(mappedBy = "collaborator_id")
     private Set<Reservation> reservations=new HashSet<>();
 
-    @Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private OffsetDateTime criado;
-    @Column(columnDefinition = "TIMESTAMP ON UPDATE CURRENT_TIMESTAMP")
-    private OffsetDateTime atualizado;
-
-
-    @PrePersist
-    public void antesDeSalvar() {
-        criado = OffsetDateTime.now();
-    }
-
-    @PreUpdate
-    public void antesDeAtualizar() {
-        atualizado = OffsetDateTime.now();
-    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
