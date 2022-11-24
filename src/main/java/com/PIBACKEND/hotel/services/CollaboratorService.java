@@ -60,13 +60,13 @@ public class CollaboratorService{
 
     @Transactional(readOnly = true)
     public List<CollaboratorDto> getAll() {
-        List<CollaboratorDto> listDto = new ArrayList<>();
-        List<Collaborator> list = userRepository.findAll();
-        for(Collaborator user : list) {
-            CollaboratorDto dto = new CollaboratorDto(user);
-            listDto.add(dto);
+        try {
+            List<Collaborator> list = userRepository.findAll();
+            return list.stream().map(CollaboratorDto::new).collect(Collectors.toList());
         }
-        return listDto;
+        catch(EntityNotFoundException e){
+            throw new EntityNotFoundExceptionHotel("Record not found!");
+        }
     }
     public Collaborator fetchEmail(String email) {
         return userRepository.findByEmail(email);
@@ -86,15 +86,15 @@ public class CollaboratorService{
         entiity.setEmail(dto.getEmail());
 
 
-        Optional<Acess> obj=roleRepository.findById(dto.getAcess_id().getAcess_id());
-        Acess acess=obj.orElseThrow(()-> new EntityNotFoundExceptionHotel("entity invalid!"));
-        entiity.setAcess_id(acess);
+//        Optional<Acess> obj=roleRepository.findById(dto.getAcess_id().getAcess_id());
+//        Acess acess=obj.orElseThrow(()-> new EntityNotFoundExceptionHotel("entity invalid!"));
+//        entiity.setAcess_id(acess);
 
-        entiity.getReservations().clear();
-        for (ReservationDto reservationDto : dto.getReservation()) {
-            Reservation reservation = repository.getReferenceById(reservationDto.getReservation_id());
-            entiity.getReservations().add(reservation);
-        }
+//        entiity.getReservations().clear();
+//        for (ReservationDto reservationDto : dto.getReservation()) {
+//            Reservation reservation = repository.getReferenceById(reservationDto.getReservation_id());
+//            entiity.getReservations().add(reservation);
+//        }
 
     }
 

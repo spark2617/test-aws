@@ -21,22 +21,21 @@ import java.util.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Collaborator implements Serializable, UserDetails {
-    @Serial
+
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer collaborator_id;
-    @Column(nullable = false)
+//    @Column(nullable = false)
     private String collaborator_name;
-    @Column(nullable = false)
+   // @Column(nullable = false)
     private String collaborator_surname;
-    @Column(nullable = false, unique = true)
+    //@Column(nullable = false, unique = true)
     private String email;
     private String collaborator_password;
 
     @ManyToOne
-    @JsonIgnoreProperties
     private Acess acess_id;
 
     @OneToMany(mappedBy = "collaborator_id")

@@ -1,6 +1,8 @@
 package com.PIBACKEND.hotel.model;
 
 import com.PIBACKEND.hotel.dtos.AcessDto;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
@@ -10,6 +12,8 @@ import java.util.Set;
 
 @Entity
 @Table
+@Getter
+@Setter
 public class Acess implements Serializable,GrantedAuthority{
 
     private static final long serialVersionUID = 1L;
@@ -18,6 +22,7 @@ public class Acess implements Serializable,GrantedAuthority{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer acess_id;
     private String acess_level;
+
     @OneToMany(mappedBy = "acess_id")
     private Set<Collaborator> collaboratorList=new HashSet<>();
 
@@ -27,36 +32,6 @@ public class Acess implements Serializable,GrantedAuthority{
         this.acess_id = acess_id;
         this.acess_level = acess_level;
     }
-
-    //get e set
-
-    public Integer getAcess_id() {
-        return acess_id;
-    }
-
-    public void setAcess_id(Integer acess_id) {
-        this.acess_id = acess_id;
-    }
-
-    public String getAcess_level() {
-        return acess_level;
-    }
-
-    public void setAcess_level(String acess_level) {
-        this.acess_level = acess_level;
-    }
-
-    //OneToMany
-
-
-    public Set<Collaborator> getCollaboratorList() {
-        return collaboratorList;
-    }
-
-    public void setCollaboratorList(Set<Collaborator> collaboratorList) {
-        this.collaboratorList = collaboratorList;
-    }
-
 
     @Override
     public String getAuthority() {

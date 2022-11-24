@@ -1,11 +1,14 @@
 package com.PIBACKEND.hotel.dtos;
 
 import com.PIBACKEND.hotel.model.Acess;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serial;
 import java.util.HashSet;
 import java.util.Set;
-
+@Getter
+@Setter
 public class AcessDto {
     @Serial
     private static final long serialVersionUID = 1L;
@@ -13,7 +16,7 @@ public class AcessDto {
     private Integer acess_id;
     private String acess_level;
 
-    private Set<CollaboratorDto> collaboratorList=new HashSet<>();
+    //private Set<CollaboratorDto> collaboratorList=new HashSet<>();
 
     public AcessDto(){}
 
@@ -27,33 +30,7 @@ public class AcessDto {
         this.acess_level=model.getAcess_level();
 
         //OneToMany
-        model.getCollaboratorList().forEach(end->this.collaboratorList.add(new CollaboratorDto(end)));
+        //model.getCollaboratorList().forEach(end->this.collaboratorList.add(new CollaboratorDto(end)));
     }
 
-    //get e set
-
-    public Integer getAcess_id() {
-        return acess_id;
-    }
-
-    public void setAcess_id(Integer acess_id) {
-        this.acess_id = acess_id;
-    }
-
-    public String getAcess_level() {
-        return acess_level;
-    }
-
-    public void setAcess_level(String acess_level) {
-        this.acess_level = acess_level;
-    }
-
-    //relaconamento OneToMany
-    public Set<CollaboratorDto> getCollaboratorList() {
-        return collaboratorList;
-    }
-
-    public void setCollaboratorList(Set<CollaboratorDto> collaboratorList) {
-        this.collaboratorList = collaboratorList;
-    }
 }
