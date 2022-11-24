@@ -38,9 +38,10 @@ public class CollaboratorController {
     }
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<CollaboratorDto> createUser(@RequestBody CollaboratorDto dto) {
-        return ResponseEntity.status(201).body(service.createUser(dto));
+    public ResponseEntity<CollaboratorDto> inserirPaciente(@RequestBody CollaboratorDto dto) {
+        dto = service.createUser(dto);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+                .buildAndExpand(dto.getCollaborator_id()).toUri();
+        return ResponseEntity.created(uri).body(dto);
     }
-
 }
