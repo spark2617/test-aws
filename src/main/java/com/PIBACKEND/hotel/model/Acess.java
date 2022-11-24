@@ -24,7 +24,7 @@ public class Acess implements Serializable,GrantedAuthority{
     private String acess_level;
 
     @OneToMany(mappedBy = "acess_id")
-    private Set<Collaborator> collaboratorList=new HashSet<>();
+    private Set<Collaborator> collaborator_id=new HashSet<>();
 
     public Acess(){}
 

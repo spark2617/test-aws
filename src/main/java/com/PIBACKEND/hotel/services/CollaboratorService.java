@@ -86,15 +86,15 @@ public class CollaboratorService{
         entiity.setEmail(dto.getEmail());
 
 
-//        Optional<Acess> obj=roleRepository.findById(dto.getAcess_id().getAcess_id());
-//        Acess acess=obj.orElseThrow(()-> new EntityNotFoundExceptionHotel("entity invalid!"));
-//        entiity.setAcess_id(acess);
+        Optional<Acess> obj=roleRepository.findById(dto.getAcess_id().getAcess_id());
+        Acess acess=obj.orElseThrow(()-> new EntityNotFoundExceptionHotel("entity invalid!"));
+        entiity.setAcess_id(acess);
 
-//        entiity.getReservations().clear();
-//        for (ReservationDto reservationDto : dto.getReservation()) {
-//            Reservation reservation = repository.getReferenceById(reservationDto.getReservation_id());
-//            entiity.getReservations().add(reservation);
-//        }
+        entiity.getReservations().clear();
+        for (ReservationDto reservationDto : dto.getReservation()) {
+            Reservation reservation = repository.getReferenceById(reservationDto.getReservation_id());
+            entiity.getReservations().add(reservation);
+        }
 
     }
 

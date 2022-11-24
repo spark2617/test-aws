@@ -36,6 +36,7 @@ public class Collaborator implements Serializable, UserDetails {
     private String collaborator_password;
 
     @ManyToOne
+    @JoinColumn(name="acess_id")
     private Acess acess_id;
 
     @OneToMany(mappedBy = "collaborator_id")
