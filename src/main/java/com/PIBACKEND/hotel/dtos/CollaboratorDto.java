@@ -27,19 +27,19 @@ public class CollaboratorDto implements Serializable {
     private String collaborator_password;
 
     //ManyToOne
-    private AcessDto acess_id;
+    private int acess_id;
 
     //OneToMany
     private Set<ReservationDto> reservation= new HashSet<>();
 
 
-    public CollaboratorDto(Integer collaborator_id, String collaborator_name, String collaborator_surname, String email, String collaborator_password, AcessDto acess_id) {
+    public CollaboratorDto(Integer collaborator_id, String collaborator_name, String collaborator_surname, String email, String collaborator_password) {
         this.collaborator_id = collaborator_id;
         this.collaborator_name = collaborator_name;
         this.collaborator_surname = collaborator_surname;
         this.email = email;
         this.collaborator_password = collaborator_password;
-        this.acess_id = acess_id;
+        //this.acess_id = acess_id;
     }
 
     public CollaboratorDto(Collaborator model){
@@ -50,7 +50,8 @@ public class CollaboratorDto implements Serializable {
         this.collaborator_password=model.getCollaborator_password();
 
 
-        this.acess_id=new AcessDto(model.getAcess_id());
+        this.acess_id=model.getAcess_id().getAcess_id();
+//        this.acess_id=new AcessDto(model.getAcess_id());
         model.getReservations().forEach(end->this.reservation.add(new ReservationDto(end)));
     }
 

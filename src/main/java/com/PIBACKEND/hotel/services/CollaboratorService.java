@@ -86,7 +86,7 @@ public class CollaboratorService{
         entiity.setEmail(dto.getEmail());
         entiity.setCollaborator_password(dto.getCollaborator_password());
 
-        Optional<Acess> obj=roleRepository.findById(dto.getAcess_id().getAcess_id());
+        Optional<Acess> obj=roleRepository.findById(dto.getAcess_id());
         Acess acess=obj.orElseThrow(()-> new EntityNotFoundExceptionHotel("entity invalid!"));
         entiity.setAcess_id(acess);
 
