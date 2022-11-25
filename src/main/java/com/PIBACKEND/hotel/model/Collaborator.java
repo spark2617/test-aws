@@ -27,12 +27,14 @@ public class Collaborator implements Serializable, UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer collaborator_id;
-//    @Column(nullable = false)
+    @Column(nullable = false)
     private String collaborator_name;
-   // @Column(nullable = false)
+    @Column(nullable = false)
     private String collaborator_surname;
-    //@Column(nullable = false, unique = true)
+    @Column(nullable = false, unique = true)
+    //@Email(message="email invalid!!!")
     private String email;
+    @Column(nullable = false,length = 20)
     private String collaborator_password;
 
     @ManyToOne
