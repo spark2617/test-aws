@@ -17,15 +17,15 @@ public class ReservationDto {
     private static final long serialVersionUID = 1L;
 
     private Integer reservation_id;
-    private Date checkin_date;
-    private Date checkout_date;
+    private String checkin_date;
+    private String checkout_date;
     private String checkin_time;
     private String checkout_time;
     private int product_id;
     private int collaborator_id;
 
 
-    public ReservationDto(Integer reservation_id, Date checkin_date, Date checkout_date, String checkin_hour,
+    public ReservationDto(Integer reservation_id, String checkin_date, String checkout_date, String checkin_hour,
                           String checkout_hour) {
         this.reservation_id = reservation_id;
         this.checkin_date = checkin_date;

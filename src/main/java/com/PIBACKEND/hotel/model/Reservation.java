@@ -9,7 +9,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+
 
 
 @Entity
@@ -26,14 +26,13 @@ public class Reservation implements Serializable {
     private Integer reservation_id;
 
     @Column(name = "checkin_date")
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
-    private Date checkin_date;
+    private String checkin_date;
 
     @Column(name = "checkin_time")
     private String checkin_time;
 
     @Column(name = "checkout_date")
-    private Date checkout_date;
+    private String checkout_date;
 
     @Column(name = "checkout_time")
     @DateTimeFormat(pattern = "HH:mm")
