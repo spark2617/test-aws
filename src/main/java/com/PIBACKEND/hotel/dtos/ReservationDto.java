@@ -21,20 +21,19 @@ public class ReservationDto {
     private Date checkout_date;
     private String checkin_time;
     private String checkout_time;
-    private ProductDto product_id;
-
-    //private CollaboratorDto collaborator_id;
+    private int product_id;
+    private int collaborator_id;
 
 
     public ReservationDto(Integer reservation_id, Date checkin_date, Date checkout_date, String checkin_hour,
-                          String checkout_hour, ProductDto product_id) {
+                          String checkout_hour) {
         this.reservation_id = reservation_id;
         this.checkin_date = checkin_date;
         this.checkout_date = checkout_date;
         this.checkin_time = checkin_hour;
         this.checkout_time = checkout_hour;
-        this.product_id = product_id;
-        //this.collaborator_id = collaborator_id;
+
+
     }
 
     public ReservationDto(Reservation model){
@@ -44,9 +43,10 @@ public class ReservationDto {
         this.checkin_date=model.getCheckin_date();
         this.checkout_date=model.getCheckout_date();
 
-        this.product_id=new ProductDto(model.getProduct_id());
+        this.product_id=model.getProduct_id().getProduct_id();
+        this.collaborator_id=model.getCollaborator_id().getCollaborator_id();
 
-        //this.collaborator_id=new CollaboratorDto(model.getCollaborator_id());
+
 
     }
 }

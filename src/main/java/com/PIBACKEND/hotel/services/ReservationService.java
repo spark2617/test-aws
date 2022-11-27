@@ -1,7 +1,11 @@
 package com.PIBACKEND.hotel.services;
 
 import com.PIBACKEND.hotel.dtos.ReservationDto;
+import com.PIBACKEND.hotel.model.Collaborator;
+import com.PIBACKEND.hotel.model.Product;
 import com.PIBACKEND.hotel.model.Reservation;
+import com.PIBACKEND.hotel.repositories.CollaboratorRepository;
+import com.PIBACKEND.hotel.repositories.ProductRespository;
 import com.PIBACKEND.hotel.repositories.ReservationRepository;
 import com.PIBACKEND.hotel.services.exceptions.EntityNotFoundExceptionHotel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +23,12 @@ public class ReservationService {
 
     @Autowired
     private ReservationRepository repository;
+
+    @Autowired
+    private ProductRespository productRespository;
+
+    @Autowired
+    private CollaboratorRepository collaboratorRepository;
 
 
     @Transactional(readOnly = true)
@@ -48,5 +58,28 @@ public class ReservationService {
         }
     }
 
+    //criar reserva
+    @Transactional
+    public ReservationDto create(ReservationDto dto){
+        Reservation entity=new Reservation();
+        copyToEntity(dto,entity);
+        entity=repository.save(entity);
+        return new ReservationDto(entity);
+    }
+
+    public void copyToEntity(ReservationDto dto, Reservation entity){
+        entity.setCheckin_date(dto.getCheckin_date());
+        entity.setCheckin_time(dto.getCheckin_time());
+        entity.setCheckout_date(dto.getCheckout_date());
+        entity.setCheckout_time(dto.getCheckout_time());
+
+        Optional<Product> obj=productRespository.findById(dto.getProduct_id());
+        Product product=obj.orElseThrow(()-> new EntityNotFoundExceptionHotel("product invalid!"));
+        entity.setProduct_id(product);
+
+        Optional<Collaborator> objCollaborator=collaboratorRepository.findById(dto.getCollaborator_id());
+        Collaborator collaborator=objCollaborator.orElseThrow(()-> new EntityNotFoundExceptionHotel("usuario invalid!"));
+        entity.setCollaborator_id(collaborator);
+    }
 
 }
