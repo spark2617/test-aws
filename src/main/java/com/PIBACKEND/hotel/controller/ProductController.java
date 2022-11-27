@@ -28,12 +28,7 @@ public class ProductController {
     //metodo especial
     @GetMapping(value = "/fetchCategory/{name}")
     public ResponseEntity<List<ProductDto>> getAllCategory(@PathVariable String name) {
-        List<ProductDto> list;
-        if(name=="todos"){
-            list = service.getAll();
-        }else{
-            list = service.getAllCategory(name);
-        }
+        List<ProductDto> list = service.getAllCategory(name);
         return ResponseEntity.ok().body(list);
     }
     @GetMapping(value = "/fetchMetaverse/{name}")
