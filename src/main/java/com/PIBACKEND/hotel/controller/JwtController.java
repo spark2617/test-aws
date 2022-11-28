@@ -27,6 +27,7 @@ public class JwtController {
     @Autowired
     private JwtUtil jwtUtil;
 
+
     @RequestMapping(value = "/authenticate", method = RequestMethod.POST)
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception{
@@ -41,16 +42,20 @@ public class JwtController {
                     authenticationRequest.getCollaborator_password()));
 
         }
-//        catch (BadCredentialsException e) {
-//            System.out.println("entrou no catch!");
-//            e.printStackTrace();
-//            throw new Exception("Incorrect", e);
-//        }
-        catch(EntityNotFoundExceptionHotel e){
-            throw new EntityNotFoundExceptionHotel("email ou senha invalido!");
+        catch (BadCredentialsException e) {
+            System.out.println("entrou no catch!");
+            e.printStackTrace();
+            throw new Exception("Incorrect", e);
         }
         final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getEmail());
         final String jwt = jwtUtil.generateToken(userDetails);
         return ResponseEntity.ok(new AuthenticationResponse(jwt));
+        if(userDetails !=null){
+            return ResponseEntity.ok(new AuthenticationResponse(jwt));
+        }
+        else{
+            return ResponseEntity.badRequest().body(new EntityNotFoundExceptionHotel("email ou senha invalido!"));
+        }
+
     }
 }

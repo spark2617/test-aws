@@ -37,7 +37,7 @@ public class MyCollaboratorDetailsService implements UserDetailsService {
             }
         }
 
-        throw new EntityNotFoundExceptionHotel("Email ou senha incorreto");
+        throw new UsernameNotFoundException("Email ou senha incorreto");
     }
 
 }
