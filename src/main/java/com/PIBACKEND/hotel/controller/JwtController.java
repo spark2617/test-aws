@@ -5,6 +5,7 @@ import com.PIBACKEND.hotel.jwt.JwtUtil;
 
 
 import com.PIBACKEND.hotel.model.AuthenticationResponse;
+import com.PIBACKEND.hotel.services.exceptions.EntityNotFoundExceptionHotel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -39,10 +40,14 @@ public class JwtController {
                     UsernamePasswordAuthenticationToken(authenticationRequest.getEmail(),
                     authenticationRequest.getCollaborator_password()));
 
-        } catch (BadCredentialsException e) {
-            System.out.println("entrou no catch!");
-            e.printStackTrace();
-            throw new Exception("Incorrect", e);
+        }
+//        catch (BadCredentialsException e) {
+//            System.out.println("entrou no catch!");
+//            e.printStackTrace();
+//            throw new Exception("Incorrect", e);
+//        }
+        catch(EntityNotFoundExceptionHotel e){
+            throw new EntityNotFoundExceptionHotel("email ou senha invalido!");
         }
         final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getEmail());
         final String jwt = jwtUtil.generateToken(userDetails);
